@@ -22,37 +22,16 @@
 
 	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr" type="text/javascript"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="../js/bootstrap.min.js"></script>
-	    <script src="../js/gmap3.min.js"></script>
   		<script src="https://cdn.rawgit.com/AndreaLombardo/BootSideMenu/master/js/BootSideMenu.js"></script>
 
   		<script type="text/javascript">
 			$(document).ready(function(){
 				$('#hub').BootSideMenu({side:"right", autoClose:true});
-				$('#map').gmap3({
-					map:{
-						options:{
-							mapTypeId: google.maps.MapTypeId.SATELLITE,
-							mapTypeControl: true,
-						     mapTypeControlOptions: {
-						       style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-						     },
-						     navigationControl: true,
-						     scrollwheel: true,
-						     streetViewControl: true,
-							center:[48.7517514,2.4993500],
-							zoom:18
-						}
-					},
-					marker:{
-						latLng:[48.7517514,2.4993500]
-					}
-				});
 			});
 		</script>
-		<!--/*adress:"11-15 avenue allary, Limeil-Brevannes, ile-de-france",-->
+		
 	</head>
 	<body>
 		<div id="hub">
@@ -122,9 +101,650 @@
 							<ul class="nav nav-tabs">
 							  <li role="presentation"><a href="bhDetail.html">Coordonnées Personnelles</a></li>
 							  <li role="presentation" class="active"><a href="#">Lots</a></li>
-							  <li role="presentation"><a href="#">Comptes</a></li>
+							  <li role="presentation"><a href="bhComptes.html">Comptes</a></li>
 							</ul>
+							<div class="well well-sm">
+								<div class="row">
+									<div class="col-md-10">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Num. Lot</th>
+													<th>Libellé</th>
+													<th>Adresse</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="#" data-toggle="modal" data-target="#lot-1">0037</a></td>
+													<td>APPARTEMENT</td>
+													<td>Le Clos Boissy, 11/15 avenue Allary 94450 Limeil Brevannes</td>
+												</tr>
+												<tr>
+													<td><a href="#" data-toggle="modal" data-target="#lot-2">0077</a></td>
+													<td>CAVE</td>
+													<td>Le Clos Boissy, 11/15 avenue Allary 94450 Limeil Brevannes</td>
+												</tr>
+												<tr>
+													<td><a href="#" data-toggle="modal" data-target="#lot-3">0253</a></td>
+													<td>PARKING EXT.</td>
+													<td>Le Clos Boissy, 11/15 avenue Allary 94450 Limeil Brevannes</td>
+												</tr>
+												<tr>
+													<td><a href="#" data-toggle="modal" data-target="#lot-4">0257</a></td>
+													<td>PARKING EXT.</td>
+													<td>Le Clos Boissy, 11/15 avenue Allary 94450 Limeil Brevannes</td>
+												</tr>
+										</table>
+									</div>
+								</div>
+							</div>
 							
+							<div class="modal fade" id="lot-1" tabindex="-1" role="dialog" aria-labbeledBy="lot-1-title">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="lot-1-title">Descriptif du lot</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Libellé :
+													</div>
+													<div class="col-md-4">
+														Appartement
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Adresse :
+													</div>
+													<div class="col-md-4">
+														Le clos boissy
+														<br/>
+														11-15 Avenue Allary
+														<br/>
+														94450 Limeil Brevannes
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:15px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Num. lot :
+													</div>
+													<div class="col-md-1">
+														0037
+													</div>
+													
+													<div class="col-md-3">
+														Date d'achat :
+													</div>
+													<div class="col-md-2">
+														30/01/14
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Bâtiment :
+													</div>
+													<div class="col-md-1">
+														A
+													</div>
+													
+													<div class="col-md-3">
+														Escalier :
+													</div>
+													<div class="col-md-2">
+														4
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Etage :
+													</div>
+													<div class="col-md-1">
+														2
+													</div>
+													
+													<div class="col-md-3">
+														Porte :
+													</div>
+													<div class="col-md-2">
+														G
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Nb. pièces :
+													</div>
+													<div class="col-md-1">
+														6
+													</div>
+													
+													<div class="col-md-3">
+														Num. plan :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Edf :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Id. Gaz :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Telecom :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="lot-2" tabindex="-1" role="dialog" aria-labbeledBy="lot-2-title">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="lot-2-title">Descriptif du lot</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Libellé :
+													</div>
+													<div class="col-md-4">
+														Cave
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Adresse :
+													</div>
+													<div class="col-md-4">
+														Le clos boissy
+														<br/>
+														11-15 Avenue Allary
+														<br/>
+														94450 Limeil Brevannes
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:15px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Num. lot :
+													</div>
+													<div class="col-md-1">
+														0077
+													</div>
+													
+													<div class="col-md-3">
+														Date d'achat :
+													</div>
+													<div class="col-md-2">
+														30/01/14
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Bâtiment :
+													</div>
+													<div class="col-md-1">
+														A
+													</div>
+													
+													<div class="col-md-3">
+														Escalier :
+													</div>
+													<div class="col-md-2">
+														4
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Etage :
+													</div>
+													<div class="col-md-1">
+														RJ
+													</div>
+													
+													<div class="col-md-3">
+														Porte :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Nb. pièces :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Num. plan :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Edf :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Id. Gaz :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Telecom :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="lot-3" tabindex="-1" role="dialog" aria-labbeledBy="lot-3-title">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="lot-3-title">Descriptif du lot</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Libellé :
+													</div>
+													<div class="col-md-4">
+														Parking Extérieur
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Adresse :
+													</div>
+													<div class="col-md-4">
+														Le clos boissy
+														<br/>
+														11-15 Avenue Allary
+														<br/>
+														94450 Limeil Brevannes
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:15px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Num. lot :
+													</div>
+													<div class="col-md-1">
+														0253
+													</div>
+													
+													<div class="col-md-3">
+														Date d'achat :
+													</div>
+													<div class="col-md-2">
+														30/01/14
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Bâtiment :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Escalier :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Etage :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Porte :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Nb. pièces :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Num. plan :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Edf :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Id. Gaz :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Telecom :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="lot-4" tabindex="-1" role="dialog" aria-labbeledBy="lot-4-title">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="lot-4-title">Descriptif du lot</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Libellé :
+													</div>
+													<div class="col-md-4">
+														Parking Extérieur
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-2">
+														Adresse :
+													</div>
+													<div class="col-md-4">
+														Le clos boissy
+														<br/>
+														11-15 Avenue Allary
+														<br/>
+														94450 Limeil Brevannes
+													</div>
+													<div class="col-md-3">
+													</div>
+												</div>
+												<div class="row" style="height:15px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Num. lot :
+													</div>
+													<div class="col-md-1">
+														0257
+													</div>
+													
+													<div class="col-md-3">
+														Date d'achat :
+													</div>
+													<div class="col-md-2">
+														30/01/14
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Bâtiment :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Escalier :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Etage :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Porte :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Nb. pièces :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Num. plan :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Edf :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+													<div class="col-md-3">
+														Id. Gaz :
+													</div>
+													<div class="col-md-2">
+													</div>
+												</div>
+												<div class="row" style="height:5px;">
+												</div>
+												<div class="row">
+													<div class="col-md-1">
+													</div>
+													<div class="col-md-3">
+														Id. Telecom :
+													</div>
+													<div class="col-md-1">
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
 						</div>
 					</div>
 					
