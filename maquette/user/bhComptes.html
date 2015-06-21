@@ -134,9 +134,7 @@
 												</div>
 												<script type="text/javascript">
 										            $(function () {
-										                $('#datedebut').datetimepicker({
-										                	locale: 'fr'
-										                });
+										                
 										            });
 										        </script>
 												<div style="height:10px;">
@@ -149,8 +147,17 @@
 												</div>
 												 <script type="text/javascript">
 										            $(function () {
+										            	$('#datedebut').datetimepicker({
+										                	locale: 'fr'
+										                });
 										                $('#datefin').datetimepicker({
 										                	locale: 'fr'
+										                });
+										                $('#datedebut').on("dp.change", function(e){
+										                	$('#datefin').data("DateTimePicker").minDate(e.date);
+										                });
+										                 $('#datefin').on("dp.change", function(e){
+										                	$('#datedebut').data("DateTimePicker").maxDate(e.date);
 										                });
 										            });
 										        </script>
