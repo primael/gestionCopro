@@ -27,6 +27,10 @@
 	    <script src="../js/bootstrap.min.js"></script>
 	    <script src="../js/moment.min.js"></script>
 	    <script src="../js/bootstrap-datetimepicker.min.js"></script>
+
+	    <script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
   		<script src="https://cdn.rawgit.com/AndreaLombardo/BootSideMenu/master/js/BootSideMenu.js"></script>
 
   		<script type="text/javascript">
@@ -179,7 +183,7 @@
 												<tbody>
 													<tr>
 														<td>01/04/2014</td>
-														<td>PROVISIONS SUR CHARGES 2EM TRIM 2014</td>
+														<td><a href="#" data-toggle="modal" data-target="#facture-1">PROVISIONS SUR CHARGES 2EM TRIM 2014</a></td>
 														<td>1 626,96</td>
 														<td></td>
 														<td>1 626,96</td>
@@ -314,6 +318,90 @@
 						</div>-->
 					</div>
 					
+					<div class="modal fade" id="facture-1" tabindex="-1" role="dialog" aria-labbeledBy="facture-1-title">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header text-center">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="facture-1-title">Appel de fonds 2<sup>ème</sup> trimestre 2014</h4>
+								</div>
+								<div class="modal-body">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-1"></div>
+											<div class="col-md-7">
+												Charges de Fioul
+											</div>
+											<div class="col-md-3">
+												1 245,00 €
+											</div>
+											<div class="col-md-1"></div>
+										</div>
+										<div class="row" style="height:15px;">
+										</div>
+										<div class="row">
+											<div class="col-md-1">
+											</div>
+											<div class="col-md-10">
+												<div id="container">
+												</div>
+											</div>
+											<div class="col-md-1">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+						$(function () {
+						    $('#container').highcharts({
+						        chart: {
+						            plotBackgroundColor: null,
+						            plotBorderWidth: null,
+						            plotShadow: false
+						        },
+						        title: {
+						            text: 'Répartition des charges'
+						        },
+						        tooltip: {
+						            pointFormat: '{point.y} €'
+						        },
+						        plotOptions: {
+						            pie: {
+						                allowPointSelect: true,
+						                cursor: 'pointer',
+						                dataLabels: {
+						                    enabled: true,
+						                    format: '<b>{point.name}</b>: {y} €',
+						                    style: {
+						                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						                    }
+						                }
+						            }
+						        },
+						        series: [{
+						            type: 'pie',
+						            name: 'Répartition des charges',
+						            data: [
+						                ['Charge de Fioul', 1245.0],
+						            ]
+						        }]
+						    });
+						});
+					</script>
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>
