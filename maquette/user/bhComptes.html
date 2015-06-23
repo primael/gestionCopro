@@ -232,7 +232,7 @@
 													</tr>
 													<tr>
 														<td>01/07/2014</td>
-														<td>APPEL DE FONDS 3T2014</td>
+														<td><a href="#" data-toggle="modal" data-target="#facture-2">APPEL DE FONDS 3T2014</a></td>
 														<td>1 576.56</td>
 														<td></td>
 														<td>0,00</td>
@@ -246,7 +246,7 @@
 													</tr>
 													<tr>
 														<td>01/10/2014</td>
-														<td><a href="#" data-toggle="modal" data-target="#facture-2">APPEL DE FONDS 4T2014</a></td>
+														<td><a href="#" data-toggle="modal" data-target="#facture-3">APPEL DE FONDS 4T2014</a></td>
 														<td>1 609,84</td>
 														<td></td>
 														<td>1 731,79</td>
@@ -274,7 +274,7 @@
 													</tr>
 													<tr>
 														<td>01/01/2015</td>
-														<td><a href="#" data-toggle="modal" data-target="#facture-3">APPEL DE FONDS 1T2015</a></td>
+														<td><a href="#" data-toggle="modal" data-target="#facture-4">APPEL DE FONDS 1T2015</a></td>
 														<td>1 609,84</td>
 														<td></td>
 														<td>1 564,35</td>
@@ -329,27 +329,99 @@
 								</div>
 								<div class="modal-body">
 									<div class="container-fluid">
+										<table class="table">
+											<thead>
+												<tr class="text-center">
+													<th>N°Lots</th>
+													<th>Natures des opérations</th>
+													<th>Montants<br/>à répartir</th>
+													<th colspan="2" class="text-center">Tantièmes répartition <br/> Totaux individuels</th>
+													<th>Quote-Part</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td></td>
+													<td>Charges communes générales</td>
+													<td>33 357.50 €</td>
+													<td>100 000</td>
+													<td>2 150</td>
+													<td>717.23 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges batiment A (Esc.5 à 8)</td>
+													<td>350.00 €</td>
+													<td>47 550</td>
+													<td>2 052</td>
+													<td>15.11 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges vide-ordures</td>
+													<td>37.50 €</td>
+													<td>75 193</td>
+													<td>2 035</td>
+													<td>1.01 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges ascenceur batiment A</td>
+													<td>1 812.50 €</td>
+													<td>27 081</td>
+													<td>1 730</td>
+													<td>115.79 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges parkings exterieurs</td>
+													<td>350.00 €</td>
+													<td>2 205</td>
+													<td>98</td>
+													<td>15.56 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges chauffage</td>
+													<td>32 787.50 €</td>
+													<td>5 330</td>
+													<td>121</td>
+													<td>744.33 €</td>
+												</tr>												
+												<tr>
+													<td></td>
+													<td>Charges compteurs d'eau</td>
+													<td>1 212.50 €</td>
+													<td>135</td>
+													<td>2</td>
+													<td>17.96 €</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="4" class="text-right"> Total du lot</td>
+													<td></td>
+													<td>1 626.96 €</td>
+												</tr>
+											</tfoot>
+										</table>
 										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-7">
-												Charges de Fioul
+											<div class="col-md-12 text-center">
+												<a id="eyegraph1" href="#" onclick='toggler("graph1");toggler("eyegraph1");toggler("eyeclosegraph1");'>
+													<span class="glyphicon glyphicon-eye-open"  aria-hidden="true"></span>
+												</a>
+												<a id="eyeclosegraph1" href="#" onclick='toggler("graph1");toggler("eyegraph1");toggler("eyeclosegraph1");' style="display:none;">
+													<span class="glyphicon glyphicon-eye-close"  aria-hidden="true"></span>
+												</a>
 											</div>
-											<div class="col-md-3">
-												1 245,00 €
+										</div>
+										<div class="row" id="graph1" style="display:none;">
+											<div class="col-md-2">
 											</div>
-											<div class="col-md-1"></div>
-										</div>
-										<div class="row" style="height:15px;">
-										</div>
-										<div class="row">
-											<!--<div class="col-md-1">
-											</div>-->
-											<div class="col-md-12">
-												<div id="container">
+											<div class="col-md-10">
+												<div id="container1">
 												</div>
 											</div>
-											<!--<div class="col-md-1">
-											</div>-->
 										</div>
 									</div>
 								</div>
@@ -361,11 +433,11 @@
 					</div>
 					<script>
 						$(function () {
-						    $('#container').highcharts({
+						    $('#container1').highcharts({
 						        chart: {
 						            plotBackgroundColor: null,
 						            plotBorderWidth: null,
-						            plotShadow: false
+						            plotShadow: true
 						        },
 						        title: {
 						            text: 'Répartition des charges'
@@ -390,7 +462,13 @@
 						            type: 'pie',
 						            name: 'Répartition des charges',
 						            data: [
-						                ['Charge de Fioul', 1245.0],
+						                ['Charges communes générales', 712.20],
+						                ['Charges batiment A (Esc.5 à 8)', 15.11],
+						                ['Charges vide-ordures', 1.01],
+						                ['Charges ascenceur bat A', 115.79],
+						                ['Charges parkings exterieurs', 15.56],
+						                ['Charges chauffage', 744.33],
+						                ['Charges compteurs d\'eau', 17.96],
 						            ]
 						        }]
 						    });
@@ -404,7 +482,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h4 class="modal-title" id="facture-2-title">Appel de fonds 4<sup>ème</sup> trimestre 2014</h4>
+									<h4 class="modal-title" id="facture-2-title">Appel de fonds 3<sup>ème</sup> trimestre 2014</h4>
 								</div>
 								<div class="modal-body">
 									<div class="container-fluid">
@@ -422,10 +500,10 @@
 												<tr>
 													<td></td>
 													<td>Charges communes générales</td>
-													<td>32 582.50 €</td>
+													<td>31 032.50 €</td>
 													<td>100 000</td>
 													<td>2 150</td>
-													<td>700.53 €</td>
+													<td>667.21 €</td>
 												</tr>
 												<tr>
 													<td></td>
@@ -469,14 +547,6 @@
 												</tr>
 												<tr>
 													<td></td>
-													<td>Charges parkings exterieurs</td>
-													<td>350.00 €</td>
-													<td>2 205</td>
-													<td>98</td>
-													<td>15.56 €</td>
-												</tr>
-												<tr>
-													<td></td>
 													<td>Charges compteurs d'eau</td>
 													<td>1 212.50 €</td>
 													<td>135</td>
@@ -488,13 +558,21 @@
 												<tr>
 													<td colspan="4" class="text-right"> Total du lot</td>
 													<td></td>
-													<td>1 609.84 €</td>
+													<td>1 576.52 €</td>
 												</tr>
 											</tfoot>
 										</table>
-										<div class="row" style="height:15px;">
-										</div>
 										<div class="row">
+											<div class="col-md-12 text-center">
+												<a id="eyegraph1" href="#" onclick='toggler("graph2");toggler("eyegraph2");toggler("eyeclosegraph2");'>
+													<span class="glyphicon glyphicon-eye-open"  aria-hidden="true"></span>
+												</a>
+												<a id="eyeclosegraph1" href="#" onclick='toggler("graph2");toggler("eyegraph2");toggler("eyeclosegraph2");' style="display:none;">
+													<span class="glyphicon glyphicon-eye-close"  aria-hidden="true"></span>
+												</a>
+											</div>
+										</div>
+										<div class="row" id="graph2" style="display:none;">
 											<div class="col-md-2">
 											</div>
 											<div class="col-md-10">
@@ -541,7 +619,7 @@
 						            type: 'pie',
 						            name: 'Répartition des charges',
 						            data: [
-						                ['Charges communes générales', 700.53],
+						                ['Charges communes générales', 667.21],
 						                ['Charges batiment A (Esc.5 à 8)', 15.11],
 						                ['Charges vide-ordures', 1.01],
 						                ['Charges ascenceur bat A', 115.79],
@@ -561,7 +639,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h4 class="modal-title" id="facture-3-title">Appel de fonds 1<sup>er</sup> trimestre 2015</h4>
+									<h4 class="modal-title" id="facture-3-title">Appel de fonds 4<sup>ème</sup> trimestre 2014</h4>
 								</div>
 								<div class="modal-body">
 									<div class="container-fluid">
@@ -649,9 +727,17 @@
 												</tr>
 											</tfoot>
 										</table>
-										<div class="row" style="height:15px;">
-										</div>
 										<div class="row">
+											<div class="col-md-12 text-center">
+												<a id="eyegraph3" href="#" onclick='toggler("graph3");toggler("eyegraph3");toggler("eyeclosegraph3");'>
+													<span class="glyphicon glyphicon-eye-open"  aria-hidden="true"></span>
+												</a>
+												<a id="eyeclosegraph3" href="#" onclick='toggler("graph3");toggler("eyegraph3");toggler("eyeclosegraph3");' style="display:none;">
+													<span class="glyphicon glyphicon-eye-close"  aria-hidden="true"></span>
+												</a>
+											</div>
+										</div>
+										<div class="row" id="graph3" style="display:none;">
 											<div class="col-md-2">
 											</div>
 											<div class="col-md-10">
@@ -711,6 +797,171 @@
 						});
 					</script>
 
+					<div class="modal fade" id="facture-4" tabindex="-1" role="dialog" aria-labbeledBy="facture-4-title">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header text-center">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="facture-4-title">Appel de fonds 1<sup>er</sup> trimestre 2015</h4>
+								</div>
+								<div class="modal-body">
+									<div class="container-fluid">
+										<table class="table">
+											<thead>
+												<tr class="text-center">
+													<th>N°Lots</th>
+													<th>Natures des opérations</th>
+													<th>Montants<br/>à répartir</th>
+													<th colspan="2" class="text-center">Tantièmes répartition <br/> Totaux individuels</th>
+													<th>Quote-Part</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td></td>
+													<td>Charges communes générales</td>
+													<td>32 582.50 €</td>
+													<td>100 000</td>
+													<td>2 150</td>
+													<td>700.53 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges batiment A (Esc.5 à 8)</td>
+													<td>350.00 €</td>
+													<td>47 550</td>
+													<td>2 052</td>
+													<td>15.11 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges vide-ordures</td>
+													<td>37.50 €</td>
+													<td>75 193</td>
+													<td>2 035</td>
+													<td>1.01 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges ascenceur batiment A</td>
+													<td>1 812.50 €</td>
+													<td>27 081</td>
+													<td>1 730</td>
+													<td>115.79 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges parkings exterieurs</td>
+													<td>350.00 €</td>
+													<td>2 205</td>
+													<td>98</td>
+													<td>15.56 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges chauffage</td>
+													<td>32 767.50 €</td>
+													<td>5 330</td>
+													<td>121</td>
+													<td>743.88 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges parkings exterieurs</td>
+													<td>350.00 €</td>
+													<td>2 205</td>
+													<td>98</td>
+													<td>15.56 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>Charges compteurs d'eau</td>
+													<td>1 212.50 €</td>
+													<td>135</td>
+													<td>2</td>
+													<td>17.96 €</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="4" class="text-right"> Total du lot</td>
+													<td></td>
+													<td>1 609.84 €</td>
+												</tr>
+											</tfoot>
+										</table>
+										<div class="row">
+											<div class="col-md-12 text-center">
+												<a id="eyegraph4" href="#" onclick='toggler("graph4");toggler("eyegraph4");toggler("eyeclosegraph4");'>
+													<span class="glyphicon glyphicon-eye-open"  aria-hidden="true"></span>
+												</a>
+												<a id="eyeclosegraph4" href="#" onclick='toggler("graph4");toggler("eyegraph4");toggler("eyeclosegraph4");' style="display:none;">
+													<span class="glyphicon glyphicon-eye-close"  aria-hidden="true"></span>
+												</a>
+											</div>
+										</div>
+										<div class="row" id="graph4" style="display:none;">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-10">
+												<div id="container4">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+						$(function () {
+						    $('#container4').highcharts({
+						        chart: {
+						            plotBackgroundColor: null,
+						            plotBorderWidth: null,
+						            plotShadow: true
+						        },
+						        title: {
+						            text: 'Répartition des charges'
+						        },
+						        tooltip: {
+						            pointFormat: '{point.y} €'
+						        },
+						        plotOptions: {
+						            pie: {
+						                allowPointSelect: true,
+						                cursor: 'pointer',
+						                dataLabels: {
+						                    enabled: true,
+						                    format: '<b>{point.name}</b>: {y} €',
+						                    style: {
+						                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						                    }
+						                }
+						            }
+						        },
+						        series: [{
+						            type: 'pie',
+						            name: 'Répartition des charges',
+						            data: [
+						                ['Charges communes générales', 700.53],
+						                ['Charges batiment A (Esc.5 à 8)', 15.11],
+						                ['Charges vide-ordures', 1.01],
+						                ['Charges ascenceur bat A', 115.79],
+						                ['Charges parkings exterieurs', 15.56],
+						                ['Charges chauffage', 743.88],
+						                ['Charges compteurs d\'eau', 17.96],
+						            ]
+						        }]
+						    });
+						});
+					</script>
+
 				</div>
 			</div>
 		</div>
@@ -718,5 +969,11 @@
 		</div>
 		<!-- right slide panel -->
 		
+		<script type="text/javascript">
+			function toggler(elementId) {
+    			$("#" + elementId).toggle();
+			}
+		</script>
+
 	</body>
 </html>
