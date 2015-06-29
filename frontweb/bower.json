@@ -1,0 +1,13 @@
+{
+  "name": "gestcopro",
+  "version": "0.1.0",
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "jquery": "~2.1.4",
+    "backbone": "~1.2.1",
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.18",
+    "require-handlebars-plugin": "latest",
+    "animate.css": "latest"
+  }
+}

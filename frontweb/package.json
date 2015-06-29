@@ -1,19 +1,33 @@
 {
-  "name": "frontweb",
-  "version": "0.1.0",
-  "description": "gestioncopro frontweb",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "chai": "^3.0.0"
-  },
-  "devDependencies": {
-    "mocha": "^2.2.5"
-  },
+    "name": "frontweb",
+    "version": "0.1.0",
+    "description": "gestioncopro frontweb",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "chai": "^3.0.0",
+        "express": "~3.4.8",
+        "ejs": "*",
+        "underscore": "~1.4.4",
+        "moment": "~2.0.0",
+        "bcrypt-nodejs": "0.0.3"
+    },
+    "devDependencies": {
+        "grunt-cli": "~0.1.8",
+        "grunt-contrib-jshint": "~0.3.0",
+        "grunt-contrib-requirejs": "~0.4.0",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-hashres2": "~0.3.2",
+        "mocha": "^2.2.5",
+        "sinon": "~1.7.2",
+        "sinon-chai": "^2.8.0",
+        "request": "~2.21.0"
+    },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
