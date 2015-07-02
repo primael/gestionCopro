@@ -12,3 +12,5 @@
 hs_err_pid*
 frontweb/node_modules/*
 frontweb/public/components/*
+frontend/node_modules/*
+frontend/public/components/*

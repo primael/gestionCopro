@@ -19,10 +19,10 @@ function hander(title, mainJs, mainCss) {
 
 module.exports = {
 	development: function () {
-		return hander('SPA Boilerplate | Development', '/js/main.js', '/css/main.css');
+		return hander('Gestion Copropriété | Development', '/js/main.js', '/css/main.css');
 	},
 
 	production: function () {
-		return hander('SPA Boilerplate | Production', client.js, client.css);
+		return hander('Gestion Copropriété | Production', client.js, client.css);
 	}
 };
