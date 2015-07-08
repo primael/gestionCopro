@@ -6,12 +6,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import fr.nimroad.gestcopro.config.SearchContext;
 import fr.nimroad.gestcopro.config.WebContext;
 
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-@Import({WebContext.class})
+@Import({WebContext.class, SearchContext.class})
 public class Application {
 
 	public static void main(String[] args) {

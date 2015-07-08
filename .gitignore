@@ -14,3 +14,9 @@ frontweb/node_modules/*
 frontweb/public/components/*
 frontend/node_modules/*
 frontend/public/components/*
+backend/.settings/*
+backend/target/*
+backend/.classpath
+backend/.project
+
+gestcopro/*
