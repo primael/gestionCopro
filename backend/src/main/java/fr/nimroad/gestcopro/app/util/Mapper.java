@@ -6,6 +6,8 @@ public interface Mapper<T, R> {
 
 	R map(T type);
 	
+	T unmap(R result);
+	
 	default String getString(Object value){
 		@SuppressWarnings("unchecked")
 		ArrayList<String> arrayList = (ArrayList<String>)value;

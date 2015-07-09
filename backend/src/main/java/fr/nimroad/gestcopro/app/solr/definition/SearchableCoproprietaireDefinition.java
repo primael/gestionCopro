@@ -9,9 +9,17 @@ public interface SearchableCoproprietaireDefinition extends Serializable {
 	String FIRSTNAME_FIELD_NAME = "PRENOM";
 	String MOBILE_FIELD_NAME = "MOBILE";
 	String FIXE_FIELD_NAME = "FIXE";
-	String MAIL_FIELD_NAME = "MAIL";
-	//String LOCATION_FIELD_NAME = "adresse";
+	String MAIL_FIELD_NAME = "EMAIL";
+	String ADRESSE_FIELD_NAME = "ADRESSE";
 	
 	String NAME_TRI_FIELD = "NOM_TRI";
 	String FIRSTNAME_TRI_FIELD = "PRENOM_TRI";
+	String MOBILE_TRI_FIELD = "MOBILE_TRI";
+	String FIXE_TRI_FIELD = "FIXE_TRI";
+	String MAIL_TRI_FIELD = "EMAIL_TRI";
+	String ADRESSE_TRI_FIELD = "ADRESSE_TRI";
+	
+	String URI = "URI";
+	String FULL_RESULT = "FULL_RESULT";
+	String URN = "COPROPRIETAIRE";
 }
