@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.solr.client.solrj.SolrQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -59,6 +60,13 @@ public class CoproprietaireServiceImpl implements CoproprietaireService {
 	@Autowired
 	public void setRepository(CoproprietaireRepository coproprietaireRepository) {
 		this.coproprietaireRepository = coproprietaireRepository;
+	}
+
+	@Override
+	public List<Coproprietaire> findByNom(String searchTerm) {
+		SolrQuery query = new SolrQuery();
+		query.addFilterQuery("NOM_TRI:*"+searchTerm.toUpperCase()+"*");
+		return null;
 	}
 
 	

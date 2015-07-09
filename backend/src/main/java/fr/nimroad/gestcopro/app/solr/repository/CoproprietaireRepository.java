@@ -7,6 +7,7 @@ import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.core.query.result.HighlightPage;
 import org.springframework.data.solr.repository.Facet;
 import org.springframework.data.solr.repository.Highlight;
+import org.springframework.data.solr.repository.Query;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,14 +18,15 @@ import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 public interface CoproprietaireRepository extends SolrCrudRepository<Coproprietaire, Long> {
 
 	/**
-	 * @Query(fields = { SearchableCoproprietaireDefinition.ID_FIELD_NAME,
-			SearchableCoproprietaireDefinition.FIRSTNAME_FIELD_NAME,
-			SearchableCoproprietaireDefinition.FIXE_FIELD_NAME, SearchableCoproprietaireDefinition.LOCATION_FIELD_NAME,
-			SearchableCoproprietaireDefinition.NAME_FIELD_NAME })
+	 * 
 	 * @param names
 	 * @param page
 	 * @return
 	 */
+	@Query(fields = { SearchableCoproprietaireDefinition.ID_FIELD_NAME,
+			SearchableCoproprietaireDefinition.FIRSTNAME_FIELD_NAME,
+			SearchableCoproprietaireDefinition.FIXE_FIELD_NAME,
+			SearchableCoproprietaireDefinition.NAME_FIELD_NAME })
 	@Highlight(postfix = "<b>", prefix = "</b>")
 	HighlightPage<Coproprietaire> findByNameContainsOrPrenomContains(Collection<String> names, Collection<String> prenoms,Pageable page);
 	

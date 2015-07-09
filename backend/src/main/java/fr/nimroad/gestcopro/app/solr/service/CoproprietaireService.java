@@ -1,5 +1,7 @@
 package fr.nimroad.gestcopro.app.solr.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.solr.core.query.result.FacetPage;
@@ -15,4 +17,6 @@ public interface CoproprietaireService {
 	Coproprietaire findById(Long id);
 	
 	FacetPage<Coproprietaire> autocompleteNameFragment(String fragment, Pageable pageable);
+	
+	List<Coproprietaire> findByNom(String searchTerm);
 }

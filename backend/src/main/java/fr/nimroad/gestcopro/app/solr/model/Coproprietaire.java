@@ -13,8 +13,10 @@ import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefiniti
 @Getter
 @Setter
 @ToString
-@SolrDocument(solrCoreName="coproprietaire")
+@SolrDocument(solrCoreName="COPROPRIETAIRE")
 public class Coproprietaire implements SearchableCoproprietaireDefinition {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Indexed
@@ -34,8 +36,5 @@ public class Coproprietaire implements SearchableCoproprietaireDefinition {
 	
 	@Indexed(FIXE_FIELD_NAME)
 	private String fixe;
-	
-	//@Indexed(LOCATION_FIELD_NAME)
-	//private String location;
 
 }
