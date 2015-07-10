@@ -1,13 +1,9 @@
 package fr.nimroad.gestcopro.app.solr.mapper;
 
-import java.util.Map.Entry;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 
-import fr.nimroad.codec.Byte64Serializer;
+import fr.nimroad.codec.Byte64SerializerByte;
 import fr.nimroad.codec.CompressedSerializer;
 import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
@@ -23,7 +19,7 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 		SolrInputDocument document = new SolrInputDocument();
 		
 		document.addField(SearchableCoproprietaireDefinition.URI, SearchableCoproprietaireDefinition.URN + "@" + coproprietaire.getId());
-		document.addField(SearchableCoproprietaireDefinition.FULL_RESULT, Byte64Serializer.INSTANCE.encode(CompressedSerializer.INSTANCE.encode(coproprietaire)));
+		document.addField(SearchableCoproprietaireDefinition.FULL_RESULT, Byte64SerializerByte.INSTANCE.encode(CompressedSerializer.INSTANCE.encode(coproprietaire)));
 		
 		document.addField(SearchableCoproprietaireDefinition.NAME_FIELD_NAME, coproprietaire.getName());
 		document.addField(SearchableCoproprietaireDefinition.NAME_TRI_FIELD, coproprietaire.getName().toUpperCase());
@@ -46,18 +42,9 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 	@Override
 	public Coproprietaire unmap(SolrDocument result) {
 		
-		result.getFieldValueMap().forEach(new BiConsumer<String, Object>() {
-
-			@Override
-			public void accept(String t, Object u) {
-				System.out.println(t +" = " + u);
-			}
-		});
+		byte[] value = (byte[])result.getFieldValue("FULL_RESULT");
 		
-		//System.out.println(value);
-		
-		//System.out.println(CompressedSerializer.INSTANCE.decode(Byte64Serializer.INSTANCE.decode(value)));
-		return null;
+		return (Coproprietaire) CompressedSerializer.INSTANCE.decode(Byte64SerializerByte.INSTANCE.decode(value));
 	}
 
 }

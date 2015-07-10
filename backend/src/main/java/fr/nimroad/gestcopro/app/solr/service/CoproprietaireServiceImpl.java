@@ -5,33 +5,27 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import lombok.SneakyThrows;
+
 import org.apache.commons.lang3.StringUtils;
-import org.apache.solr.client.solrj.SolrQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.stereotype.Service;
 
+import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
+import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.repository.CoproprietaireRepository;
+import fr.nimroad.gestcopro.app.solr.util.QuerySolrHelper;
+import fr.nimroad.gestcopro.app.solr.util.SolrHandler;
 
 @Service
 public class CoproprietaireServiceImpl implements CoproprietaireService {
 
-	private static final Pattern IGNORED_CHARS_PATTERN = Pattern.compile("\\p{Punct}");
-	
-	private CoproprietaireRepository coproprietaireRepository;
-	
-	@Override
-	public Page<Coproprietaire> findByName(String searchTerm, Pageable pageable) {
-		System.out.println("pageable: " + pageable);
-		System.out.println("searchTerm: " + searchTerm);
-		if(StringUtils.isBlank(searchTerm)) {
-			return coproprietaireRepository.findAll(pageable);
-		}
-		return coproprietaireRepository.findByNameContainsOrPrenomContains(splitSearchTermAndRemoveIgnoredCharacters(searchTerm), splitSearchTermAndRemoveIgnoredCharacters(searchTerm),pageable);
-	}
+	private static final Pattern IGNORED_CHARS_PATTERN = Pattern
+			.compile("\\p{Punct}");
 
 	@Override
 	public Coproprietaire findById(Long id) {
@@ -39,12 +33,7 @@ public class CoproprietaireServiceImpl implements CoproprietaireService {
 		return null;
 	}
 
-	@Override
-	public FacetPage<Coproprietaire> autocompleteNameFragment(String fragment, Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 	private Collection<String> splitSearchTermAndRemoveIgnoredCharacters(String searchTerm) {
 		String[] searchTerms = StringUtils.split(searchTerm, " ");
 		List<String> result = new ArrayList<String>(searchTerms.length);
@@ -57,17 +46,41 @@ public class CoproprietaireServiceImpl implements CoproprietaireService {
 		return result;
 	}
 
-	@Autowired
-	public void setRepository(CoproprietaireRepository coproprietaireRepository) {
-		this.coproprietaireRepository = coproprietaireRepository;
+	@SuppressWarnings("unchecked")
+	@Override
+	@SneakyThrows
+	public List<Coproprietaire> findByNom(String searchTerm) {
+		QuerySolrHelper querySolrHelper = new QuerySolrHelper();
+		querySolrHelper.addFilterQuery(searchTerm,
+				SearchableCoproprietaireDefinition.NAME_TRI_FIELD);
+
+		return (List<Coproprietaire>) SolrHandler.COPROPRIETAIRE.search(querySolrHelper.build(), new CoproprietaireMapper());
 	}
 
 	@Override
-	public List<Coproprietaire> findByNom(String searchTerm) {
-		SolrQuery query = new SolrQuery();
-		query.addFilterQuery("NOM_TRI:*"+searchTerm.toUpperCase()+"*");
-		return null;
+	@SneakyThrows
+	@SuppressWarnings("unchecked")
+	public List<Coproprietaire> findByNomOrPrenom(String searchTerm) {
+		QuerySolrHelper querySolrHelper = new QuerySolrHelper();
+		querySolrHelper.addOrFilterQuery(searchTerm,
+				SearchableCoproprietaireDefinition.NAME_TRI_FIELD, SearchableCoproprietaireDefinition.FIRSTNAME_TRI_FIELD);
+
+		return (List<Coproprietaire>) SolrHandler.COPROPRIETAIRE.search(querySolrHelper.build(), new CoproprietaireMapper());
 	}
 
+	@Override
+	@SneakyThrows
+	@SuppressWarnings("unchecked")
+	public List<Coproprietaire> findByFull(String searchTerm) {
+		QuerySolrHelper querySolrHelper = new QuerySolrHelper();
+		querySolrHelper.addOrFilterQuery(searchTerm,
+				SearchableCoproprietaireDefinition.NAME_TRI_FIELD, SearchableCoproprietaireDefinition.FIRSTNAME_TRI_FIELD,
+				SearchableCoproprietaireDefinition.ADRESSE_TRI_FIELD, SearchableCoproprietaireDefinition.FIXE_TRI_FIELD,
+				SearchableCoproprietaireDefinition.MOBILE_FIELD_NAME, SearchableCoproprietaireDefinition.MAIL_TRI_FIELD);
+
+		return (List<Coproprietaire>) SolrHandler.COPROPRIETAIRE.search(querySolrHelper.build(), new CoproprietaireMapper());
+	}
 	
+	
+
 }
