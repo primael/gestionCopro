@@ -2,6 +2,8 @@ package fr.nimroad.gestcopro.app.solr.util;
 
 import org.apache.solr.client.solrj.SolrQuery;
 
+import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
+
 public class QuerySolrHelper {
 
 	private SolrQuery query;
@@ -32,6 +34,21 @@ public class QuerySolrHelper {
 	public QuerySolrHelper addOrFilterQuery(String searchTerm, String... queries){
 		
 		addGenericFilterQuery("OR", searchTerm, queries);
+		
+		return this;
+	}
+	
+	public QuerySolrHelper addCore(String... cores){
+		String shard = "";
+		
+		for(String core : cores){
+			if(!shard.isEmpty()){
+				shard += ","; 
+			}
+			shard += PropertiesGetValue.CONFIG.getValue("solr.url") + core;
+		}
+		
+		query.setParam("shards",shard);
 		
 		return this;
 	}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import org.apache.solr.client.solrj.SolrClient;
@@ -19,7 +20,9 @@ import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.model.DTSearch;
-import fr.nimroad.gestcopro.app.solr.model.Residence;
+import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
+import fr.nimroad.gestcopro.app.solr.service.SearchService;
+import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
 
 public enum SolrHandler {
 	
@@ -28,9 +31,12 @@ public enum SolrHandler {
 	
 	private final SolrClient solr;
 	
+	@Getter
+	private final String url;
 	
 	private SolrHandler(String coreName) {
-		solr = new HttpSolrClient("http://127.0.0.1:8983/solr/" + coreName);
+		this.url = PropertiesGetValue.CONFIG.getValue("solr.url") + coreName;
+		solr = new HttpSolrClient(url);
 	}
 	
 	
@@ -47,6 +53,29 @@ public enum SolrHandler {
 		return toReturn;
 	}
 	
+	public List<DTSearch> search(SolrQuery query) throws SolrServerException, IOException {
+		QueryResponse response = solr.query(query);
+		
+		SolrDocumentList results = response.getResults();
+		
+		//FIXME spécialisation moche
+		CoproprietaireMapper coproprietaireMapper = new CoproprietaireMapper();
+		ResidenceMapper residenceMapper = new ResidenceMapper();
+		
+		
+		List<DTSearch> toReturn = new ArrayList<DTSearch>();
+		for(SolrDocument objet: results){
+			
+			if(((String)objet.get("URI")).startsWith("COPROPRIETAIRE")){
+				toReturn.add(coproprietaireMapper.unmap(objet));
+			} else if(((String)objet.get("URI")).startsWith("RESIDENCE")){
+				toReturn.add(residenceMapper.unmap(objet));
+			}
+		}
+		
+		return toReturn;
+	}
+	
 	@SneakyThrows
 	public void add(DTSearch object, AbstractSolrMapper mapper) {
 		solr.add(mapper.map(object));
@@ -55,35 +84,40 @@ public enum SolrHandler {
 	
 	public static void main(String[] args) throws SolrServerException, IOException, ClassNotFoundException {
 		
-		Coproprietaire coproprietaire = new Coproprietaire();
-		coproprietaire.setId(1l);
-		coproprietaire.setEmail("primael.bruant@l-infini.fr");
-		coproprietaire.setFixe("01 05 09 07 03");
-		coproprietaire.setMobile("06-58-88-71-34");
-		coproprietaire.setName("Bruant");
-		coproprietaire.setPrenom("Primaël");
-		
-		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
-		
-		coproprietaire.setId(2l);
-		coproprietaire.setEmail("e.satoulou@hotmail.fr");
-		coproprietaire.setFixe("01.01.02.03.04");
-		coproprietaire.setMobile("06.05.06.07.08");
-		coproprietaire.setName("Satoulou");
-		coproprietaire.setPrenom("Eumaël");
-		
-		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
-		
-		Residence residence = new Residence();
-		residence.setId(1l);
-		residence.setName("Residence Clos Boissy - Limeil Brevannes");
-		
-		SolrHandler.RESIDENCE.add(residence, new ResidenceMapper());
+//		Coproprietaire coproprietaire = new Coproprietaire();
+//		coproprietaire.setId(1l);
+//		coproprietaire.setEmail("primael.bruant@l-infini.fr");
+//		coproprietaire.setFixe("01 05 09 07 03");
+//		coproprietaire.setMobile("06-58-88-71-34");
+//		coproprietaire.setName("Bruant");
+//		coproprietaire.setPrenom("Primaël");
+//		
+//		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
+//		
+//		coproprietaire.setId(2l);
+//		coproprietaire.setEmail("e.satoulou@hotmail.fr");
+//		coproprietaire.setFixe("01.01.02.03.04");
+//		coproprietaire.setMobile("06.05.06.07.08");
+//		coproprietaire.setName("Satoulou");
+//		coproprietaire.setPrenom("Eumaël");
+//		
+//		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
+//		
+//		Residence residence = new Residence();
+//		residence.setId(1l);
+//		residence.setName("Residence Clos Boissy - Limeil Brevannes");
+//		
+//		SolrHandler.RESIDENCE.add(residence, new ResidenceMapper());
 //		
 //		CoproprietaireService service = CoproprietaireService.getInstance();
 //		for(Coproprietaire coproprietaire : service.findByFull("maél")){
 //			System.out.println(coproprietaire);
 //		}
 		
+		
+		SearchService service = SearchService.getInstance();
+		for(DTSearch dtSearch : service.findByFull("")){
+			System.out.println(dtSearch);
+		}
 	}
 }
