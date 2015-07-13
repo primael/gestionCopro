@@ -46,6 +46,6 @@ public class QuerySolrHelper {
 	}
 	
 	public SolrQuery build(){
-		return query.addFilterQuery(filterQuery);
+		return query.addFilterQuery(filterQuery); //.setParam("shards", "http://127.0.0.1:8983/solr/COPROPRIETAIRE");
 	}
 }

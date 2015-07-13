@@ -8,22 +8,17 @@ import java.util.regex.Pattern;
 import lombok.SneakyThrows;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.solr.core.query.result.FacetPage;
-import org.springframework.stereotype.Service;
 
 import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
-import fr.nimroad.gestcopro.app.solr.repository.CoproprietaireRepository;
 import fr.nimroad.gestcopro.app.solr.util.QuerySolrHelper;
 import fr.nimroad.gestcopro.app.solr.util.SolrHandler;
 
-@Service
-public class CoproprietaireServiceImpl implements CoproprietaireService {
+public enum CoproprietaireServiceImpl implements CoproprietaireService {
 
+	INSTANCE;
+	
 	private static final Pattern IGNORED_CHARS_PATTERN = Pattern
 			.compile("\\p{Punct}");
 
@@ -34,7 +29,7 @@ public class CoproprietaireServiceImpl implements CoproprietaireService {
 	}
 
 
-	private Collection<String> splitSearchTermAndRemoveIgnoredCharacters(String searchTerm) {
+	Collection<String> splitSearchTermAndRemoveIgnoredCharacters(String searchTerm) {
 		String[] searchTerms = StringUtils.split(searchTerm, " ");
 		List<String> result = new ArrayList<String>(searchTerms.length);
 		for (String term : searchTerms) {
@@ -61,10 +56,12 @@ public class CoproprietaireServiceImpl implements CoproprietaireService {
 	@SneakyThrows
 	@SuppressWarnings("unchecked")
 	public List<Coproprietaire> findByNomOrPrenom(String searchTerm) {
+		//Collection<String> terms = splitSearchTermAndRemoveIgnoredCharacters(searchTerm);
 		QuerySolrHelper querySolrHelper = new QuerySolrHelper();
-		querySolrHelper.addOrFilterQuery(searchTerm,
-				SearchableCoproprietaireDefinition.NAME_TRI_FIELD, SearchableCoproprietaireDefinition.FIRSTNAME_TRI_FIELD);
-
+		//for(String term : terms){
+			querySolrHelper.addOrFilterQuery(searchTerm,
+					SearchableCoproprietaireDefinition.NAME_TRI_FIELD, SearchableCoproprietaireDefinition.FIRSTNAME_TRI_FIELD);
+		//}
 		return (List<Coproprietaire>) SolrHandler.COPROPRIETAIRE.search(querySolrHelper.build(), new CoproprietaireMapper());
 	}
 

@@ -16,20 +16,21 @@ import org.apache.solr.common.SolrDocumentList;
 
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
+import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.model.DTSearch;
-import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
-import fr.nimroad.gestcopro.app.solr.service.CoproprietaireServiceImpl;
+import fr.nimroad.gestcopro.app.solr.model.Residence;
 
 public enum SolrHandler {
 	
-	COPROPRIETAIRE("COPROPRIETAIRE");
+	COPROPRIETAIRE("COPROPRIETAIRE"),
+	RESIDENCE("RESIDENCE");
 	
 	private final SolrClient solr;
 	
 	
 	private SolrHandler(String coreName) {
-		solr = new HttpSolrClient("http://192.168.1.25:8983/solr/" + coreName);
+		solr = new HttpSolrClient("http://127.0.0.1:8983/solr/" + coreName);
 	}
 	
 	
@@ -54,20 +55,35 @@ public enum SolrHandler {
 	
 	public static void main(String[] args) throws SolrServerException, IOException, ClassNotFoundException {
 		
-//		Coproprietaire coproprietaire = new Coproprietaire();
-//		coproprietaire.setId(2l);
-//		coproprietaire.setEmail("e.satoulou@hotmail.fr");
-//		coproprietaire.setFixe("01.01.02.03.04");
-//		coproprietaire.setMobile("06.05.06.07.08");
-//		coproprietaire.setName("Satoulou");
-//		coproprietaire.setPrenom("Eumaël");
-//		
-//		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
+		Coproprietaire coproprietaire = new Coproprietaire();
+		coproprietaire.setId(1l);
+		coproprietaire.setEmail("primael.bruant@l-infini.fr");
+		coproprietaire.setFixe("01 05 09 07 03");
+		coproprietaire.setMobile("06-58-88-71-34");
+		coproprietaire.setName("Bruant");
+		coproprietaire.setPrenom("Primaël");
 		
-		CoproprietaireService service = new CoproprietaireServiceImpl();
-		for(Coproprietaire coproprietaire : service.findByFull("primael satoulou")){
-			System.out.println(coproprietaire);
-		}
+		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
+		
+		coproprietaire.setId(2l);
+		coproprietaire.setEmail("e.satoulou@hotmail.fr");
+		coproprietaire.setFixe("01.01.02.03.04");
+		coproprietaire.setMobile("06.05.06.07.08");
+		coproprietaire.setName("Satoulou");
+		coproprietaire.setPrenom("Eumaël");
+		
+		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
+		
+		Residence residence = new Residence();
+		residence.setId(1l);
+		residence.setName("Residence Clos Boissy - Limeil Brevannes");
+		
+		SolrHandler.RESIDENCE.add(residence, new ResidenceMapper());
 //		
+//		CoproprietaireService service = CoproprietaireService.getInstance();
+//		for(Coproprietaire coproprietaire : service.findByFull("maél")){
+//			System.out.println(coproprietaire);
+//		}
+		
 	}
 }

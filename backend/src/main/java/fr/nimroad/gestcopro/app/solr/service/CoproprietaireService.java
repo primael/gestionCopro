@@ -6,6 +6,9 @@ import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 
 public interface CoproprietaireService {
 
+	static CoproprietaireService getInstance(){
+		return CoproprietaireServiceImpl.INSTANCE;
+	}
 
 	Coproprietaire findById(Long id);
 	
