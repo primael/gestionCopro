@@ -81,11 +81,11 @@
 		<field name="IDX_COPROPRIETAIRE_ID" type="long" indexed="true" stored="false" multiValued="false" />
 		<field name="CHAMP_LIBRE" type="text" indexed="true" stored="false" multiValued="false" />
                 <!-- Nom du coproprietaire -->
-		<field name="NOM" type="text" indexed="true" stored="false" multiValued="false" />
-		<field name="NOM_TRI" type="string" indexed="true" stored="false" multiValued="false" />
+		<field name="NOM" type="string" indexed="true" stored="false" multiValued="false" />
+		<field name="NOM_TRI" type="text" indexed="true" stored="false" multiValued="false" />
                 <!-- Prenom du coproprietaire -->
-		<field name="PRENOM" type="text" indexed="true" stored="false" multiValued="false" />
-		<field name="PRENOM_TRI" type="string" indexed="true" stored="false" multiValued="false" />
+		<field name="PRENOM" type="string" indexed="true" stored="false" multiValued="false" />
+		<field name="PRENOM_TRI" type="text" indexed="true" stored="false" multiValued="false" />
                 <!-- Mobile du coproprietaire -->
 		<field name="MOBILE" type="text" indexed="true" stored="false" multiValued="false" />
                 <field name="MOBILE_TRI" type="string" indexed="true" stored="false" multiValued="false" />

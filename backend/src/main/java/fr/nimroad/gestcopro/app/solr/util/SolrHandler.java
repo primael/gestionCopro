@@ -15,6 +15,7 @@ import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
+import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.model.DTSearch;
 import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
@@ -28,7 +29,7 @@ public enum SolrHandler {
 	
 	
 	private SolrHandler(String coreName) {
-		solr = new HttpSolrClient("http://127.0.0.1:8983/solr/" + coreName);
+		solr = new HttpSolrClient("http://192.168.1.25:8983/solr/" + coreName);
 	}
 	
 	
@@ -55,18 +56,18 @@ public enum SolrHandler {
 		
 //		Coproprietaire coproprietaire = new Coproprietaire();
 //		coproprietaire.setId(2l);
-//		coproprietaire.setEmail("allan.bouteflika@gmail.com");
-//		coproprietaire.setFixe("01-06-07-08-09");
-//		coproprietaire.setMobile("06-15-14-13-12");
-//		coproprietaire.setName("Bouteflika");
-//		coproprietaire.setPrenom("Allan");
+//		coproprietaire.setEmail("e.satoulou@hotmail.fr");
+//		coproprietaire.setFixe("01.01.02.03.04");
+//		coproprietaire.setMobile("06.05.06.07.08");
+//		coproprietaire.setName("Satoulou");
+//		coproprietaire.setPrenom("Eumaël");
 //		
 //		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
 		
 		CoproprietaireService service = new CoproprietaireServiceImpl();
-		for(Coproprietaire coproprietaire : service.findByFull("aN")){
+		for(Coproprietaire coproprietaire : service.findByFull("primael satoulou")){
 			System.out.println(coproprietaire);
 		}
-		
+//		
 	}
 }
