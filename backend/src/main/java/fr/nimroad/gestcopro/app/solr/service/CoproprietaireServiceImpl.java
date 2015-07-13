@@ -9,9 +9,9 @@ import lombok.SneakyThrows;
 
 import org.apache.commons.lang3.StringUtils;
 
-import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
+import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
+import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
-import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.util.QuerySolrHelper;
 import fr.nimroad.gestcopro.app.solr.util.SolrHandler;
 

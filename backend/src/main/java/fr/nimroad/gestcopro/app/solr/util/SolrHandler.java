@@ -15,11 +15,12 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
+import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
+import fr.nimroad.gestcopro.app.model.entite.Dto;
+import fr.nimroad.gestcopro.app.model.entite.Residence;
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
-import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
-import fr.nimroad.gestcopro.app.solr.model.DTSearch;
 import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
 import fr.nimroad.gestcopro.app.solr.service.SearchService;
 import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
@@ -40,12 +41,12 @@ public enum SolrHandler {
 	}
 	
 	
-	public List<? extends DTSearch> search(SolrQuery query, AbstractSolrMapper mapper) throws SolrServerException, IOException {
+	public List<? extends Dto> search(SolrQuery query, AbstractSolrMapper mapper) throws SolrServerException, IOException {
 		QueryResponse response = solr.query(query);
 		
 		SolrDocumentList results = response.getResults();
 		
-		List<DTSearch> toReturn = new ArrayList<DTSearch>();
+		List<Dto> toReturn = new ArrayList<Dto>();
 		for(SolrDocument objet: results){
 			toReturn.add(mapper.unmap(objet));
 		}
@@ -53,7 +54,7 @@ public enum SolrHandler {
 		return toReturn;
 	}
 	
-	public List<DTSearch> search(SolrQuery query) throws SolrServerException, IOException {
+	public List<Dto> search(SolrQuery query) throws SolrServerException, IOException {
 		QueryResponse response = solr.query(query);
 		
 		SolrDocumentList results = response.getResults();
@@ -63,7 +64,7 @@ public enum SolrHandler {
 		ResidenceMapper residenceMapper = new ResidenceMapper();
 		
 		
-		List<DTSearch> toReturn = new ArrayList<DTSearch>();
+		List<Dto> toReturn = new ArrayList<Dto>();
 		for(SolrDocument objet: results){
 			
 			if(((String)objet.get("URI")).startsWith("COPROPRIETAIRE")){
@@ -77,7 +78,7 @@ public enum SolrHandler {
 	}
 	
 	@SneakyThrows
-	public void add(DTSearch object, AbstractSolrMapper mapper) {
+	public void add(Dto object, AbstractSolrMapper mapper) {
 		solr.add(mapper.map(object));
 		solr.commit();
 	}
@@ -108,7 +109,7 @@ public enum SolrHandler {
 //		residence.setName("Residence Clos Boissy - Limeil Brevannes");
 //		
 //		SolrHandler.RESIDENCE.add(residence, new ResidenceMapper());
-//		
+		
 //		CoproprietaireService service = CoproprietaireService.getInstance();
 //		for(Coproprietaire coproprietaire : service.findByFull("maél")){
 //			System.out.println(coproprietaire);
@@ -116,7 +117,7 @@ public enum SolrHandler {
 		
 		
 		SearchService service = SearchService.getInstance();
-		for(DTSearch dtSearch : service.findByFull("")){
+		for(Dto dtSearch : service.findByFull("limeil")){
 			System.out.println(dtSearch);
 		}
 	}

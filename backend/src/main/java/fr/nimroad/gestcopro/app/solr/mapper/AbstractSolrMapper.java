@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 
-import fr.nimroad.gestcopro.app.solr.model.DTSearch;
+import fr.nimroad.gestcopro.app.model.entite.Dto;
 
 public abstract class AbstractSolrMapper {
 
-	public abstract SolrInputDocument map(DTSearch dtSearch);
+	public abstract SolrInputDocument map(Dto dtSearch);
 	
-	public abstract DTSearch unmap(SolrDocument result);
+	public abstract Dto unmap(SolrDocument result);
 	
 	String getString(Object value){
 		@SuppressWarnings("unchecked")

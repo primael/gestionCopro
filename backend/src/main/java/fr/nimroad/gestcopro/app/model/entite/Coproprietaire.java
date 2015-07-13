@@ -1,14 +1,14 @@
-package fr.nimroad.gestcopro.app.solr.model;
+package fr.nimroad.gestcopro.app.model.entite;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
+import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
 
 @Getter
 @Setter
 @ToString
-public class Coproprietaire extends DTSearch implements SearchableCoproprietaireDefinition {
+public class Coproprietaire implements Dto<Long> , SearchableCoproprietaireDefinition {
 
 	private static final long serialVersionUID = 1L;
 

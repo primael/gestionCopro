@@ -1,8 +1,7 @@
-package fr.nimroad.gestcopro.app.solr.definition;
+package fr.nimroad.gestcopro.app.model.entite.definition;
 
-import java.io.Serializable;
 
-public interface SearchableCoproprietaireDefinition extends Serializable {
+public interface SearchableCoproprietaireDefinition extends SearchableDefinition {
 
 	String ID_FIELD_NAME = "IDX_COPROPRIETAIRE_ID";
 	String NAME_FIELD_NAME = "NOM";
@@ -19,7 +18,5 @@ public interface SearchableCoproprietaireDefinition extends Serializable {
 	String MAIL_TRI_FIELD = "EMAIL_TRI";
 	String ADRESSE_TRI_FIELD = "ADRESSE_TRI";
 	
-	String URI = "URI";
-	String FULL_RESULT = "FULL_RESULT";
 	String URN = "COPROPRIETAIRE";
 }

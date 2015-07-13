@@ -10,7 +10,7 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
+import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
 import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
 
 @Path("/search")

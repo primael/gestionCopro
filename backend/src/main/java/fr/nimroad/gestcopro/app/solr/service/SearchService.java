@@ -2,7 +2,7 @@ package fr.nimroad.gestcopro.app.solr.service;
 
 import java.util.List;
 
-import fr.nimroad.gestcopro.app.solr.model.DTSearch;
+import fr.nimroad.gestcopro.app.model.entite.Dto;
 
 public interface SearchService {
 
@@ -10,5 +10,5 @@ public interface SearchService {
 		return SearchServiceImpl.INSTANCE;
 	}
 
-	List<DTSearch> findByFull(String searchTerm);
+	List<Dto> findByFull(String searchTerm);
 }

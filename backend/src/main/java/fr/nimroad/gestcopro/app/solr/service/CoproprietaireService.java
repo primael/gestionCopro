@@ -2,7 +2,7 @@ package fr.nimroad.gestcopro.app.solr.service;
 
 import java.util.List;
 
-import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
+import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
 
 public interface CoproprietaireService {
 

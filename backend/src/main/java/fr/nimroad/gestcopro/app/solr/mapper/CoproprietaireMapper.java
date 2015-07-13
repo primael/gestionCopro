@@ -5,14 +5,14 @@ import org.apache.solr.common.SolrInputDocument;
 
 import fr.nimroad.codec.Byte64SerializerByte;
 import fr.nimroad.codec.CompressedSerializer;
-import fr.nimroad.gestcopro.app.solr.definition.SearchableCoproprietaireDefinition;
-import fr.nimroad.gestcopro.app.solr.model.Coproprietaire;
-import fr.nimroad.gestcopro.app.solr.model.DTSearch;
+import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
+import fr.nimroad.gestcopro.app.model.entite.Dto;
+import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
 
 public class CoproprietaireMapper extends AbstractSolrMapper {
 
 	@Override
-	public SolrInputDocument map(DTSearch dtSearch) {
+	public SolrInputDocument map(Dto dtSearch) {
 		
 		Coproprietaire coproprietaire = (Coproprietaire) dtSearch;
 		// On créer un SolrInputDocument
@@ -20,6 +20,7 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 		
 		document.addField(SearchableCoproprietaireDefinition.URI, SearchableCoproprietaireDefinition.URN + "@" + coproprietaire.getId());
 		document.addField(SearchableCoproprietaireDefinition.FULL_RESULT, Byte64SerializerByte.INSTANCE.encode(CompressedSerializer.INSTANCE.encode(coproprietaire)));
+		document.addField(SearchableCoproprietaireDefinition.CONTENT, concatenateChamp(coproprietaire));
 		
 		document.addField(SearchableCoproprietaireDefinition.NAME_FIELD_NAME, coproprietaire.getName());
 		document.addField(SearchableCoproprietaireDefinition.NAME_TRI_FIELD, coproprietaire.getName().toUpperCase());
@@ -47,4 +48,9 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 		return (Coproprietaire) CompressedSerializer.INSTANCE.decode(Byte64SerializerByte.INSTANCE.decode(value));
 	}
 
+	private String concatenateChamp(Coproprietaire coproprietaire){
+		String toReturn = coproprietaire.getName().toUpperCase() + " " + coproprietaire.getPrenom().toUpperCase() + " " + coproprietaire.getMobile().trim().replaceAll("[.!?\\- ]", "").toUpperCase() + " ";
+		toReturn += coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase() + " " + coproprietaire.getEmail().toLowerCase();
+		return toReturn;
+	}
 }
