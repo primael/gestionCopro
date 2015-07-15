@@ -21,8 +21,8 @@ import fr.nimroad.gestcopro.app.model.entite.Residence;
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
-import fr.nimroad.gestcopro.app.solr.service.CoproprietaireService;
-import fr.nimroad.gestcopro.app.solr.service.SearchService;
+import fr.nimroad.gestcopro.app.solr.service.CoproprietaireSolrService;
+import fr.nimroad.gestcopro.app.solr.service.SearchSolrService;
 import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
 
 public enum SolrHandler {
@@ -62,8 +62,7 @@ public enum SolrHandler {
 		//FIXME spécialisation moche
 		CoproprietaireMapper coproprietaireMapper = new CoproprietaireMapper();
 		ResidenceMapper residenceMapper = new ResidenceMapper();
-		
-		
+				
 		List<Dto> toReturn = new ArrayList<Dto>();
 		for(SolrDocument objet: results){
 			
@@ -116,8 +115,8 @@ public enum SolrHandler {
 //		}
 		
 		
-		SearchService service = SearchService.getInstance();
-		for(Dto dtSearch : service.findByFull("limeil")){
+		SearchSolrService service = SearchSolrService.getInstance();
+		for(Dto dtSearch : service.findByFull("morel")){
 			System.out.println(dtSearch);
 		}
 	}

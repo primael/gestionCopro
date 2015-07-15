@@ -35,7 +35,7 @@ public class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> {
 		ParameterizedType genericSuperClass = (ParameterizedType) getClass().getGenericSuperclass();
 		this.persistentClass = (Class<E>) genericSuperClass.getActualTypeArguments()[0];
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("domobox");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("gestcopro");
 		entityManager = factory.createEntityManager();
 	}
 	

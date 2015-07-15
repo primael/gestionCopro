@@ -53,6 +53,16 @@ public class QuerySolrHelper {
 		return this;
 	}
 	
+	public QuerySolrHelper addStart(int start){
+		query.setStart(start);
+		return this;
+	}
+	
+	public QuerySolrHelper setRows(int rows){
+		query.setRows(rows);
+		return this;
+	}
+	
 	private void addGenericFilterQuery(String lien, String searchTerm, String... queries){
 		for(String query : queries){
 			if(!filterQuery.isEmpty()){

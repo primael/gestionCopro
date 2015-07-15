@@ -12,7 +12,7 @@ import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaire
 public class CoproprietaireMapper extends AbstractSolrMapper {
 
 	@Override
-	public SolrInputDocument map(Dto dtSearch) {
+	public SolrInputDocument map(Dto<?> dtSearch) {
 		
 		Coproprietaire coproprietaire = (Coproprietaire) dtSearch;
 		// On créer un SolrInputDocument
@@ -29,7 +29,7 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 		document.addField(SearchableCoproprietaireDefinition.FIRSTNAME_TRI_FIELD, coproprietaire.getPrenom().toUpperCase());
 		
 		document.addField(SearchableCoproprietaireDefinition.MOBILE_FIELD_NAME, coproprietaire.getMobile());
-		document.addField(SearchableCoproprietaireDefinition.MOBILE_TRI_FIELD, coproprietaire.getMobile().trim().replaceAll("[.!?\\- ]", "").toUpperCase());
+		document.addField(SearchableCoproprietaireDefinition.MOBILE_TRI_FIELD, supprEspaceCarac(coproprietaire.getMobile(), "[.!?\\- ]").toUpperCase());
 		
 		document.addField(SearchableCoproprietaireDefinition.FIXE_FIELD_NAME, coproprietaire.getFixe());
 		document.addField(SearchableCoproprietaireDefinition.FIXE_TRI_FIELD, coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase());
@@ -49,8 +49,15 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 	}
 
 	private String concatenateChamp(Coproprietaire coproprietaire){
-		String toReturn = coproprietaire.getName().toUpperCase() + " " + coproprietaire.getPrenom().toUpperCase() + " " + coproprietaire.getMobile().trim().replaceAll("[.!?\\- ]", "").toUpperCase() + " ";
-		toReturn += coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase() + " " + coproprietaire.getEmail().toLowerCase();
+		String toReturn = coproprietaire.getName().toUpperCase() + " " + coproprietaire.getPrenom().toUpperCase() + " " + supprEspaceCarac(coproprietaire.getMobile(), "[.!?\\- ]").toUpperCase() + " ";
+		toReturn += coproprietaire.getFixe()!=null?coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase():"" + " " + coproprietaire.getEmail()!=null?coproprietaire.getEmail().toLowerCase():"";
 		return toReturn;
+	}
+	
+	private String supprEspaceCarac(String element, String pattern){
+		if(element != null && !element.isEmpty()){
+			return element.trim().replaceAll("[.!?\\- ]", "");
+		}
+		return "";
 	}
 }

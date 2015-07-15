@@ -9,7 +9,7 @@ import fr.nimroad.gestcopro.app.model.entite.Dto;
 
 public abstract class AbstractSolrMapper {
 
-	public abstract SolrInputDocument map(Dto dtSearch);
+	public abstract SolrInputDocument map(Dto<?> dtSearch);
 	
 	public abstract Dto unmap(SolrDocument result);
 	

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Application Title - Application Version</title>
+
+        <!--Bootstrap-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/AndreaLombardo/BootSideMenu/master/css/BootSideMenu.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://cdn.rawgit.com/AndreaLombardo/BootSideMenu/master/js/BootSideMenu.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#hub').BootSideMenu({side:"right", autoClose:true});
+            });
+        </script>
+    </head>
+    <body>
+        <div id="hub">
+            <a href="#" aria-hidden="true">
+                <img src="img/assgenerale.png" class="img-circle"/>
+            </a>
+        </div>
+
+        <div class="page-header text-center">
+            <h1>Application Title<br/><small>subtext</small></h1>
+        </div>
+
+        <div id="page" class="row">
+
+            <!-- left slide panel -->
+            <div id="leftPanel" class="col-md-1">
+
+            </div>
+
+            <div id="wrapped" class="col-md-10">
+                <div class="row" style="height:20px;">
+
+                </div>
+                <!-- search bar -->
+                <div class="row" id="searchBar">
+                    <div class="col-md-1">
+                    </div>
+                    <!-- Une barre de recherche, element principal de l'application -->
+                    <div class="col-md-10">
+                            <div class="col-md-2">
+                            </div>
+
+                            <div class="col-md-8" id="flux-search"></div>
+
+                            <div class="col-md-2">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="row" style="height:50px;">
+
+                </div>
+
+                <div class="row">
+                    <div class="jumbotron">
+                        <div class="container">
+                            <div class="col-lg-1 text-center" style="height:200px;"></div>
+                            <div class="col-lg-4 text-center" style="height:200px;">
+                                <img src="img/user.png" class="img-circle">
+                            </div>
+                            <div class="col-lg-2 text-center" style="height:200px;"></div>
+                            <div class="col-lg-4 text-center" style="height:200px;">
+                                <img src="img/immeuble.png" class="img-circle">
+                            </div>
+                            <div class="col-lg-1 text-center" style="height:200px;"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        
+
+        
+
+        <div class="row">
+
+            
+        </div>
+        <!-- right slide panel -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script src="js/utils.js"></script>
+        <script src="js/models/coproprietaire.model.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
+</html>

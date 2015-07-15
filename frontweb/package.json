@@ -1,45 +1,24 @@
 {
-    "name": "frontweb",
-    "version": "0.1.0",
-    "description": "gestioncopro frontweb",
-    "main": "index.js",
-    "directories": {
-        "test": "test"
-    },
-    "dependencies": {
-        "chai": "^3.0.0",
-        "express": "~3.4.8",
-        "ejs": "*",
-        "underscore": "~1.4.4",
-        "moment": "~2.0.0",
-        "bcrypt-nodejs": "0.0.3"
-    },
-    "devDependencies": {
-        "grunt-cli": "~0.1.8",
-        "grunt-contrib-jshint": "~0.3.0",
-        "grunt-contrib-requirejs": "~0.4.0",
-        "grunt-contrib-copy": "~0.4.1",
-        "grunt-hashres2": "~0.3.2",
-        "mocha": "^2.2.5",
-        "sinon": "~1.7.2",
-        "sinon-chai": "^2.8.0",
-        "request": "~2.21.0"
-    },
+  "name": "gestCopro",
+  "version": "0.0.1",
+  "description": "Gestion Copropriete",
+  "main": "index.js",
+  "dependencies": {
+    "express": "latest",
+    "backbone": "latest",
+    "underscore": "^1.7.0",
+    "express-logger": "latest",
+    "body-parser": "latest"
+  },
   "scripts": {
-    "test": "mocha",
-    "start": "node index"
+    "start": "index.js",
+    "build": "browserify . | uglifyjs -cm > js/bundle.min.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/primael/gestionCopro.git"
-  },
-  "keywords": [
-    "gestionCopro"
-  ],
-  "author": "Primael Bruant",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/primael/gestionCopro/issues"
-  },
-  "homepage": "https://github.com/primael/gestionCopro#readme"
+  "author": "Ken Wheeler",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
 }
