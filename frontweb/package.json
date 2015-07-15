@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "latest",
     "backbone": "latest",
-    "underscore": "^1.7.0",
+    "underscore": "latest",
     "express-logger": "latest",
     "body-parser": "latest"
   },

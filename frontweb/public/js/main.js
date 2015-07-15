@@ -10,7 +10,7 @@ Backbone.View.prototype.close = function() {
 var AppRouter = Backbone.Router.extend({
 
 	initialize: function(){
-		$('#header').html(new HeaderView().render().el);
+		$('#search').html(new SearchView().render().el);
 	},
 
 	routes:{
@@ -26,7 +26,7 @@ var AppRouter = Backbone.Router.extend({
 	},
 });
 
-utils.loadTemplate(['HomeView'], function() {
+utils.loadTemplate(['SearchView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
