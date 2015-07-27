@@ -1,14 +1,8 @@
 package fr.nimroad.gestcopro.app.solr.service.implementation;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import lombok.SneakyThrows;
-
-import org.apache.commons.lang3.StringUtils;
-
 import fr.nimroad.gestcopro.app.model.dao.CoproprietaireDao;
 import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
@@ -20,9 +14,6 @@ import fr.nimroad.gestcopro.app.solr.util.SolrHandler;
 public enum CoproprietaireServiceImpl implements CoproprietaireSolrService {
 
 	INSTANCE;
-	
-	private static final Pattern IGNORED_CHARS_PATTERN = Pattern
-			.compile("\\p{Punct}");
 
 	private final CoproprietaireDao coproprietaireDao = CoproprietaireDao.getInstance();
 	
@@ -30,19 +21,6 @@ public enum CoproprietaireServiceImpl implements CoproprietaireSolrService {
 	public Coproprietaire findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-
-	Collection<String> splitSearchTermAndRemoveIgnoredCharacters(String searchTerm) {
-		String[] searchTerms = StringUtils.split(searchTerm, " ");
-		List<String> result = new ArrayList<String>(searchTerms.length);
-		for (String term : searchTerms) {
-			if (StringUtils.isNotEmpty(term)) {
-				result.add(IGNORED_CHARS_PATTERN.matcher(term).replaceAll(" "));
-			}
-		}
-		System.out.println("result :" + result);
-		return result;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -99,6 +77,8 @@ public enum CoproprietaireServiceImpl implements CoproprietaireSolrService {
 
 	@Override
 	public void fullReindexation() {
+		//On supprime les objets indexés
+		SolrHandler.COPROPRIETAIRE.flush();
 		
 		// On récupère la liste de tous les copropriétaires
 		//FIXME dans la vrai vie on prendrait par tranche de N (étant défini dans le fichier de configuraion externe)
@@ -107,6 +87,11 @@ public enum CoproprietaireServiceImpl implements CoproprietaireSolrService {
 		for(Coproprietaire coproprietaire : coproprietaires){
 			SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
 		}
+	}
+
+	@Override
+	public void indexer(Coproprietaire coproprietaire) {
+		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
 	}
 	
 	

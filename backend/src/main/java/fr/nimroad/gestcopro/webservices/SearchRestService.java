@@ -29,7 +29,10 @@ public class SearchRestService {
 		List<Coproprietaire> coproprietaires = coproprietaireSolrService.findByFull(term);
 		GenericEntity<List<Coproprietaire>> entity = new GenericEntity<List<Coproprietaire>>(coproprietaires) {
 		};
-		return Response.ok(entity).build();
+		return Response.ok(entity) //
+				.header("access-control-allow-origin", "http://127.0.0.1") //
+				.header("access-control-expose-header", "Cache-Control,Content-Encoding") // 
+				.build();
 	}
 
 	@GET

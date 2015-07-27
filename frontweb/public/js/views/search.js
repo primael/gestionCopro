@@ -26,12 +26,24 @@ window.SearchView = Backbone.View.extend({
     beforeSearch: function () {
         //On lance la recherche non?
         this.search();
-        return false;
+        return true;
     },
 
     search: function () {        
+        //En fonction de la zone les éléments de recherche sont différents:
+        if($('#zoneSearch').attr("data-zone")==='USER'){
+            var coproprietaireList = new CoproprietaireSearchCollection([],{term: $('#textSearch').val()});
+            coproprietaireList.fetch({
+                success:function(collection){
 
-        console.log('élément recherché : ' + $('#textSearch').val() + ' zone de recherche : ' + $('#zoneSearch').attr("data-zone"));
+                    //On doit modifier le conteneur pour lui mettre la vue 
+                    //des résultats des copropriétaires
+                    $('#conteneur').html(new ResultView({model:collection}).el);
+                    new ResultView({model:collection});
+                }
+            });
+        }
+        //console.log('élément recherché : ' + $('#textSearch').val() + ' zone de recherche : ' + $('#zoneSearch').attr("data-zone"));
         
     },
 

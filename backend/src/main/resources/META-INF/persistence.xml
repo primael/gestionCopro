@@ -5,13 +5,18 @@
 	<persistence-unit name="gestcopro" transaction-type="RESOURCE_LOCAL">
 
 		<class>fr.nimroad.gestcopro.app.model.entite.Coproprietaire</class>
+		<class>fr.nimroad.gestcopro.app.model.entite.Adresse</class>
+		<class>fr.nimroad.gestcopro.app.model.entite.Residence</class>
+		<class>fr.nimroad.gestcopro.app.model.entite.Commune</class>
+		<class>fr.nimroad.gestcopro.app.model.entite.TypeVoie</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.user" value="gestcopro" />
 			<property name="javax.persistence.jdbc.password" value="gestcopro" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://192.168.1.24:5432/gestcopro" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://bdd.gestcopro.nimrod.com:5432/gestcopro" />
+			
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
 		</properties>
 	</persistence-unit>
 </persistence>

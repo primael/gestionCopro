@@ -11,7 +11,7 @@ public abstract class AbstractSolrMapper {
 
 	public abstract SolrInputDocument map(Dto<?> dtSearch);
 	
-	public abstract Dto unmap(SolrDocument result);
+	public abstract Dto<?> unmap(SolrDocument result);
 	
 	String getString(Object value){
 		@SuppressWarnings("unchecked")

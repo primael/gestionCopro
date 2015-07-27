@@ -1,0 +1,22 @@
+{
+    "email": "alecagy@gmail.com",
+    "fixe": "0175484226",
+    "name": "MOREL",
+    "prenom": "Joseph Gianny",
+    "mobile": "",
+    "adresse" : {
+    	"mentionComplement": "",
+    	"complementAdresse": "Résidence Clos de Boissy - Bâtiment 1",
+    	"numero": "11/15",
+    	"typeVoie": {
+    		"abbreviation": "AV",
+    		"libelle": "Avenue"
+    	},
+    	"nomVoie": "Allary",
+    	"commune" : {
+    		"codeInsee": "94044",
+    		"nom": "Limeil-Brévannes",
+    		"codePostal": "94450"
+    	}
+    }
+}

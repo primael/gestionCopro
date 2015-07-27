@@ -12,7 +12,7 @@ import fr.nimroad.gestcopro.app.model.entite.definition.SearchableResidenceDefin
 public class ResidenceMapper extends AbstractSolrMapper {
 
 	@Override
-	public SolrInputDocument map(Dto dtSearch) {
+	public SolrInputDocument map(Dto<?> dtSearch) {
 		Residence residence = (Residence) dtSearch;
 		
 		SolrInputDocument document = new SolrInputDocument();

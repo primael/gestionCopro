@@ -11,5 +11,5 @@ public interface SearchSolrService {
 		return SearchServiceImpl.INSTANCE;
 	}
 
-	List<Dto> findByFull(String searchTerm);
+	List<Dto<?>> findByFull(String searchTerm);
 }

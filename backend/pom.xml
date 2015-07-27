@@ -9,13 +9,15 @@
 	<url>https://github.com/primael/gestionCopro/</url>
 	<name>Gestion Copropriete</name>
 	<description>Gestion de copropriete - compte - coproprietaire</description>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.12</junit.version>
 		<lombok.version>1.12.6</lombok.version>
 		<jersey.version>2.17</jersey.version>
+		<quartz.version>2.2.1</quartz.version>
+		<aspectj.version>1.8.6</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -96,7 +98,7 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 		</dependency>
-		
+
 		<!-- Apache commons -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -108,7 +110,7 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<!-- Rest Services -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
@@ -145,14 +147,101 @@
 			<artifactId>jersey-media-moxy</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
+
+		<!-- Quartz scheduler -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+
+		<!-- Transaction -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<!-- Aop -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+		<!-- Third Party -->
+		<!-- Geocoder -->
+		<dependency>
+			<groupId>com.google.code.geocoder-java</groupId>
+			<artifactId>geocoder-java</artifactId>
+			<version>0.16</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.3</version>
+	        <configuration>
+	          <!-- or whatever version you use -->
+	          <source>${java.version}</source>
+	          <target>${java.version}</target>
+	        </configuration>
+	      </plugin>
+<!-- 	      <plugin> -->
+<!-- 	        <groupId>org.apache.maven.plugins</groupId> -->
+<!-- 	        <artifactId>maven-resources-plugin</artifactId> -->
+<!-- 	        <version>2.7</version> -->
+<!-- 	        <configuration> -->
+<!-- 	          <encoding>cp1252</encoding> -->
+<!-- 	        </configuration> -->
+<!-- 	      </plugin> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<version>1.7</version>
+				<configuration>
+					<complianceLevel>${java.version}</complianceLevel>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjrt</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjtools</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+	    </plugins>
+	</build>
 
 	<scm>
 		<url>https://github.com/primael/gestionCopro/</url>
 		<connection>scm:git:git://github.com/primael/gestionCopro.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:primael/gestionCopro.git</developerConnection>
 	</scm>
-	
+
 
 	<developers>
 		<developer>

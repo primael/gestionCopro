@@ -10,23 +10,23 @@ Backbone.View.prototype.close = function() {
 var AppRouter = Backbone.Router.extend({
 
 	initialize: function(){
-		$('#search').html(new SearchView().render().el);
+		$('#search').html(new SearchView().render().el);		
 	},
 
 	routes:{
-		"" : "home",
+		"" : "home"
 	},
 
 	home:function(){
-		var coproprietaireList = new CoproprietaireCollection();
+		/*var coproprietaireList = new CoproprietaireCollection();
 		coproprietaireList.fetch({
 			success:function(){
 				console.log("coproprietaire recuperer");
-			}});
+			}});*/
 	},
 });
 
-utils.loadTemplate(['SearchView'], function() {
+utils.loadTemplate(['SearchView','ResultView','CoproprietaireListItemView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });

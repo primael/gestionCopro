@@ -14,10 +14,9 @@ public enum SearchServiceImpl implements SearchSolrService {
 
 	INSTANCE;
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	@SneakyThrows
-	public List<Dto> findByFull(String searchTerm) {
+	public List<Dto<?>> findByFull(String searchTerm) {
 		QuerySolrHelper querySolrHelper = new QuerySolrHelper();
 		querySolrHelper.addOrFilterQuery(searchTerm,
 			SearchableCoproprietaireDefinition.CONTENT, SearchableResidenceDefinition.CONTENT

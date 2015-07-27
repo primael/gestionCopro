@@ -15,13 +15,10 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
-import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
 import fr.nimroad.gestcopro.app.model.entite.Dto;
-import fr.nimroad.gestcopro.app.model.entite.Residence;
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
-import fr.nimroad.gestcopro.app.solr.service.CoproprietaireSolrService;
 import fr.nimroad.gestcopro.app.solr.service.SearchSolrService;
 import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
 
@@ -41,12 +38,12 @@ public enum SolrHandler {
 	}
 	
 	
-	public List<? extends Dto> search(SolrQuery query, AbstractSolrMapper mapper) throws SolrServerException, IOException {
+	public List<? extends Dto<?>> search(SolrQuery query, AbstractSolrMapper mapper) throws SolrServerException, IOException {
 		QueryResponse response = solr.query(query);
 		
 		SolrDocumentList results = response.getResults();
 		
-		List<Dto> toReturn = new ArrayList<Dto>();
+		List<Dto<?>> toReturn = new ArrayList<Dto<?>>();
 		for(SolrDocument objet: results){
 			toReturn.add(mapper.unmap(objet));
 		}
@@ -54,7 +51,7 @@ public enum SolrHandler {
 		return toReturn;
 	}
 	
-	public List<Dto> search(SolrQuery query) throws SolrServerException, IOException {
+	public List<Dto<?>> search(SolrQuery query) throws SolrServerException, IOException {
 		QueryResponse response = solr.query(query);
 		
 		SolrDocumentList results = response.getResults();
@@ -63,7 +60,7 @@ public enum SolrHandler {
 		CoproprietaireMapper coproprietaireMapper = new CoproprietaireMapper();
 		ResidenceMapper residenceMapper = new ResidenceMapper();
 				
-		List<Dto> toReturn = new ArrayList<Dto>();
+		List<Dto<?>> toReturn = new ArrayList<Dto<?>>();
 		for(SolrDocument objet: results){
 			
 			if(((String)objet.get("URI")).startsWith("COPROPRIETAIRE")){
@@ -77,47 +74,13 @@ public enum SolrHandler {
 	}
 	
 	@SneakyThrows
-	public void add(Dto object, AbstractSolrMapper mapper) {
+	public void add(Dto<?> object, AbstractSolrMapper mapper) {
 		solr.add(mapper.map(object));
 		solr.commit();
 	}
 	
-	public static void main(String[] args) throws SolrServerException, IOException, ClassNotFoundException {
-		
-//		Coproprietaire coproprietaire = new Coproprietaire();
-//		coproprietaire.setId(1l);
-//		coproprietaire.setEmail("primael.bruant@l-infini.fr");
-//		coproprietaire.setFixe("01 05 09 07 03");
-//		coproprietaire.setMobile("06-58-88-71-34");
-//		coproprietaire.setName("Bruant");
-//		coproprietaire.setPrenom("Primaël");
-//		
-//		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
-//		
-//		coproprietaire.setId(2l);
-//		coproprietaire.setEmail("e.satoulou@hotmail.fr");
-//		coproprietaire.setFixe("01.01.02.03.04");
-//		coproprietaire.setMobile("06.05.06.07.08");
-//		coproprietaire.setName("Satoulou");
-//		coproprietaire.setPrenom("Eumaël");
-//		
-//		SolrHandler.COPROPRIETAIRE.add(coproprietaire, new CoproprietaireMapper());
-//		
-//		Residence residence = new Residence();
-//		residence.setId(1l);
-//		residence.setName("Residence Clos Boissy - Limeil Brevannes");
-//		
-//		SolrHandler.RESIDENCE.add(residence, new ResidenceMapper());
-		
-//		CoproprietaireService service = CoproprietaireService.getInstance();
-//		for(Coproprietaire coproprietaire : service.findByFull("maél")){
-//			System.out.println(coproprietaire);
-//		}
-		
-		
-		SearchSolrService service = SearchSolrService.getInstance();
-		for(Dto dtSearch : service.findByFull("morel")){
-			System.out.println(dtSearch);
-		}
+	@SneakyThrows
+	public void flush(){
+		solr.deleteByQuery("*:*");
 	}
 }

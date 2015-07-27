@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspectj>
+    <weaver options="-verbose -showWeaveInfo -Xset:weaveJavaxPackages=true -debug">
+       	<include within="fr.nimroad.gestcopro"/>
+    </weaver>
+	<aspects>
+		<aspect id="loggableRestAspect" class="fr.nimroad.gestcopro.aspect.LoggableAspect" ></aspect>
+	</aspects>
+</aspectj>

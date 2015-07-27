@@ -22,4 +22,6 @@ public interface CoproprietaireSolrService {
 	List<Coproprietaire> findByFull(String searchTerm, int start, int nbRows);
 	
 	void fullReindexation();
+	
+	void indexer(Coproprietaire coproprietaire);
 }

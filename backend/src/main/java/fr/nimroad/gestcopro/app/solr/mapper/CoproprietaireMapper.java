@@ -37,6 +37,9 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 		document.addField(SearchableCoproprietaireDefinition.MAIL_FIELD_NAME, coproprietaire.getEmail());
 		document.addField(SearchableCoproprietaireDefinition.MAIL_TRI_FIELD, coproprietaire.getEmail().toLowerCase());
 		
+		document.addField(SearchableCoproprietaireDefinition.ADRESSE_FIELD_NAME, coproprietaire.getAdresse());
+		document.addField(SearchableCoproprietaireDefinition.ADRESSE_TRI_FIELD, coproprietaire.getAdresse().toString().toUpperCase());
+		
 		return document;
 	}
 
@@ -50,7 +53,8 @@ public class CoproprietaireMapper extends AbstractSolrMapper {
 
 	private String concatenateChamp(Coproprietaire coproprietaire){
 		String toReturn = coproprietaire.getName().toUpperCase() + " " + coproprietaire.getPrenom().toUpperCase() + " " + supprEspaceCarac(coproprietaire.getMobile(), "[.!?\\- ]").toUpperCase() + " ";
-		toReturn += coproprietaire.getFixe()!=null?coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase():"" + " " + coproprietaire.getEmail()!=null?coproprietaire.getEmail().toLowerCase():"";
+		toReturn += coproprietaire.getFixe()!=null?coproprietaire.getFixe().trim().replaceAll("[.!?\\- ]", "").toUpperCase():"" + " " + coproprietaire.getEmail()!=null?coproprietaire.getEmail().toLowerCase():""
+			; // + " " + coproprietaire.getAdresse().toString().toLowerCase();
 		return toReturn;
 	}
 	

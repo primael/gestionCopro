@@ -12,4 +12,6 @@ public interface CoproprietaireDao {
 	}
 	
 	List<Coproprietaire> getAll();
+	
+	Coproprietaire save(Coproprietaire coproprietaire);
 }

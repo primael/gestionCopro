@@ -7,18 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
 
 @Getter
 @Setter
 @ToString
 @Entity
-@SequenceGenerator(name = "COPROPRIETAIRE_SEQ", sequenceName = "SEQ_BOX", allocationSize = 1)
+@SequenceGenerator(name = "COPROPRIETAIRE_SEQ", sequenceName = "SEQ_COPROPRIETAIRE", allocationSize = 1)
 public class Coproprietaire implements Dto<Long> , SearchableCoproprietaireDefinition {
 
 	private static final long serialVersionUID = 1L;
@@ -45,5 +46,8 @@ public class Coproprietaire implements Dto<Long> , SearchableCoproprietaireDefin
 	
 	@JsonProperty
 	private String fixe;
+	
+	@JsonProperty
+	private Adresse adresse;
 
 }

@@ -12,4 +12,7 @@ public interface CoproprietaireService {
 	}
 	
 	List<Coproprietaire> getAll();
+	
+	Coproprietaire sauvegarder(Coproprietaire coproprietaire);
+	
 }
