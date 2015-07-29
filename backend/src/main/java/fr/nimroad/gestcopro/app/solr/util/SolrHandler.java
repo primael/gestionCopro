@@ -19,7 +19,6 @@ import fr.nimroad.gestcopro.app.model.entite.Dto;
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
-import fr.nimroad.gestcopro.app.solr.service.SearchSolrService;
 import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
 
 public enum SolrHandler {

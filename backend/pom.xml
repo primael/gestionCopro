@@ -181,6 +181,11 @@
 			<artifactId>geocoder-java</artifactId>
 			<version>0.16</version>
 		</dependency>
+		<dependency>
+			<groupId>fr.nimroad.gestcopro</groupId>
+			<artifactId>gestcoproutils</artifactId>
+			<version>1.0.0.BUILD-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
