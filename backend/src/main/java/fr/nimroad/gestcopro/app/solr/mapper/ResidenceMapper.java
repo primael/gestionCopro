@@ -5,9 +5,9 @@ import org.apache.solr.common.SolrInputDocument;
 
 import fr.nimroad.codec.Byte64SerializerByte;
 import fr.nimroad.codec.CompressedSerializer;
-import fr.nimroad.gestcopro.app.model.entite.Dto;
 import fr.nimroad.gestcopro.app.model.entite.Residence;
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableResidenceDefinition;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 public class ResidenceMapper extends AbstractSolrMapper {
 

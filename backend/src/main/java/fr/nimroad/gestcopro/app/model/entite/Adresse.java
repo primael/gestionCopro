@@ -16,6 +16,7 @@ import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableAdresseDefinition;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 @Getter
 @Setter

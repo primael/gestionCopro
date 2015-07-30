@@ -1,0 +1,104 @@
+.container .logo {
+	height: 55px;
+	margin: 30px 0 10px 0;
+}
+
+.container h1 {
+	font-size: 26px;
+	text-align: center;
+	/*font-family: 'OpenSansBold';*/
+	margin-top:0;
+}
+
+.container h2 {
+	font-size: 18px;
+	text-align: center;
+	margin: 10px 10px;
+}
+
+.container h3 {
+	font-size: 18px;
+	/*font-family: 'OpenSansSemiBold';*/
+}
+
+.container .panel {
+	margin: 30px 0;
+	color: #00245d;
+	border-radius: 0;
+	border-color: #bcbdbf;
+	background-color: rgba(255,255,255,0.8);
+}
+
+
+.container .panel .panel-default {
+	background-color: transparent;
+}
+
+.container .panel .panel-heading {
+	text-align: center;
+	font-size: 24px;
+	/*font-family: 'OpenSansBold';*/
+	color: #00245d;
+	background-color: transparent;
+	border-radius: 0;
+	border-color: #bcbdbf;
+}
+
+.container .panel .panel-body {
+	padding: 10px 40px 30px 40px;
+	background-color: transparent;
+}
+
+.container .panel .panel-body label {
+	text-transform: uppercase;
+	width: 200px;
+	padding: 0;
+}
+
+.container .panel .panel-body input {
+	color: #000;
+	font-family: helvetica, arial, verdana;
+}
+
+.container .panel .panel-body .form-group {
+	margin: 15px 0 30px 0;
+	border: 1px solid transparent;
+}
+
+.container .panel .panel-body .form-group .form-control {
+	background-color: #dddee0;
+	border-radius: 0;
+	border-color: #dddee0;
+	-webkit-box-shadow: 0 0 0;
+	box-shadow: 0 0 0;
+}
+
+.container .panel .panel-body .form-group .form-control:focus {
+	box-shadow: inset 0px 0px 5px #83a9f7;
+}
+
+.container .btn-toolbar {
+	text-align: center;
+	padding: 10px 0;
+}
+
+.container .btn-toolbar .btn-group {
+	float: none;
+}
+
+.container .btn-toolbar .btn-group button {
+	background-color: #1bbc9b;
+	color:white;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	font-size: 12px;
+	border:0;
+	border-radius: 0;
+	margin: 0px 10px;
+}
+
+.container button.btn.connexion {
+	padding-left: 50px;
+	padding-right: 50px;
+	/*font-family: 'OpenSansSemiBold';*/
+}

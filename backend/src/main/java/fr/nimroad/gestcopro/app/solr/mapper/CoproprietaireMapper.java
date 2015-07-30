@@ -6,8 +6,8 @@ import org.apache.solr.common.SolrInputDocument;
 import fr.nimroad.codec.Byte64SerializerByte;
 import fr.nimroad.codec.CompressedSerializer;
 import fr.nimroad.gestcopro.app.model.entite.Coproprietaire;
-import fr.nimroad.gestcopro.app.model.entite.Dto;
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableCoproprietaireDefinition;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 public class CoproprietaireMapper extends AbstractSolrMapper {
 

@@ -1,1 +1,4 @@
 /target/
+/bin/
+/src/main/solr/coproprietaire/data/index/
+/src/main/solr/residence/data/index/

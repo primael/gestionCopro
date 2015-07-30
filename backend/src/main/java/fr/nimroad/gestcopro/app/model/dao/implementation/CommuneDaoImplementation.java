@@ -3,15 +3,17 @@ package fr.nimroad.gestcopro.app.model.dao.implementation;
 import javax.persistence.Query;
 
 import fr.nimroad.gestcopro.app.model.dao.CommuneDao;
-import fr.nimroad.gestcopro.app.model.dao.GenericDaoImpl;
 import fr.nimroad.gestcopro.app.model.entite.Commune;
+import fr.nimroad.gestcopro.utils.model.dao.GenericDaoImpl;
 
 public class CommuneDaoImplementation extends GenericDaoImpl<Commune, Integer> implements CommuneDao {
 
-	private CommuneDaoImplementation(){}
+	private CommuneDaoImplementation(String persistenceUnitName){
+		super(persistenceUnitName);
+	}
 	
 	private static class CommuneDaoHolder{
-		private final static CommuneDao INSTANCE = new CommuneDaoImplementation();
+		private final static CommuneDao INSTANCE = new CommuneDaoImplementation("gestcopro");
 	}
 	
 	public static CommuneDao getInstance(){

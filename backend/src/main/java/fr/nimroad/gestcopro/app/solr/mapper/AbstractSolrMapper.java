@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 
-import fr.nimroad.gestcopro.app.model.entite.Dto;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 public abstract class AbstractSolrMapper {
 

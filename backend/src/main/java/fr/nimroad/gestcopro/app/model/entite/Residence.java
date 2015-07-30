@@ -7,12 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import fr.nimroad.gestcopro.app.model.entite.definition.SearchableResidenceDefinition;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 @Getter
 @Setter

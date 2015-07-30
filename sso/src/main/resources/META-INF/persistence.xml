@@ -4,5 +4,14 @@
 		<class>fr.nimroad.gestcopro.sso.model.entite.Profil</class>
 		<class>fr.nimroad.gestcopro.sso.model.entite.hub.HubApplication</class>
 		<class>fr.nimroad.gestcopro.sso.model.entite.Utilisateur</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.user" value="gestcoprosso" />
+			<property name="javax.persistence.jdbc.password" value="gestcoprosso" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://bdd.gestcopro.nimrod.com:5432/gestcoprosso" />
+			
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+		</properties>
 	</persistence-unit>
 </persistence>

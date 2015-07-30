@@ -1,5 +1,4 @@
-package fr.nimroad.gestcopro.app.model.entite;
-
+package fr.nimroad.gestcopro.utils.model.entite;
 
 public interface Dto<N> {
 

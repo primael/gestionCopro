@@ -2,16 +2,18 @@ package fr.nimroad.gestcopro.app.model.dao.implementation;
 
 import javax.persistence.Query;
 
-import fr.nimroad.gestcopro.app.model.dao.GenericDaoImpl;
 import fr.nimroad.gestcopro.app.model.dao.TypeVoieDao;
 import fr.nimroad.gestcopro.app.model.entite.TypeVoie;
+import fr.nimroad.gestcopro.utils.model.dao.GenericDaoImpl;
 
 public class TypeVoieDaoImplementation extends GenericDaoImpl<TypeVoie, Integer> implements TypeVoieDao {
 
-	private TypeVoieDaoImplementation(){}
+	private TypeVoieDaoImplementation(String persistenceUnitName){
+		super(persistenceUnitName);
+	}
 	
 	private static class TypeVoieDaoHolder {
-		private final static TypeVoieDao INSTANCE = new TypeVoieDaoImplementation();
+		private final static TypeVoieDao INSTANCE = new TypeVoieDaoImplementation("gestcopro");
 	}
 	
 	public static TypeVoieDao getInstance(){

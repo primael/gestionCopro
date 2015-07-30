@@ -1,12 +1,12 @@
-package fr.nimroad.gestcopro.app.model.dao;
+package fr.nimroad.gestcopro.utils.model.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,18 +16,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import jersey.repackaged.com.google.common.base.Preconditions;
 import lombok.AccessLevel;
 import lombok.Getter;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
-import com.google.common.base.Preconditions;
-
-import fr.nimroad.gestcopro.app.model.entite.Dto;
-
-public class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> {
+public abstract class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> {
 
 	private final Class<E> persistentClass;
 	
-	@Getter(AccessLevel.PROTECTED)
+	@Getter(AccessLevel.PUBLIC)
 	private EntityManager entityManager;
 	
 	/**
@@ -35,11 +33,11 @@ public class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> {
 	 * &lt;E&gt; of the persistent entity.
 	 */
 	@SuppressWarnings("unchecked")
-	public GenericDaoImpl(){
+	public GenericDaoImpl(String persistenceUnitName){
 		ParameterizedType genericSuperClass = (ParameterizedType) getClass().getGenericSuperclass();
 		this.persistentClass = (Class<E>) genericSuperClass.getActualTypeArguments()[0];
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("gestcopro");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(persistenceUnitName);
 		entityManager = factory.createEntityManager();
 	}
 	
@@ -90,9 +88,19 @@ public class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> {
 		return this.entityManager.createNamedQuery(namedQuery).getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<E> findWhithNamedQuery(String namedQuery, int resultLimit) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<E> toReturn;
+		final List<E> result = this.entityManager.createNamedQuery(namedQuery).getResultList();
+		
+		if(resultLimit < result.size()){
+			toReturn = result.subList(0, resultLimit);
+		} else {
+			toReturn = result;
+		}
+		
+		return toReturn;
 	}
 	
 	public List<E> findWhithNamedQuery(String namedQuery, Map<String, Object> parameters) {

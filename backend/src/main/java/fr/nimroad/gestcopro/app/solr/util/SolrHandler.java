@@ -15,11 +15,11 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
-import fr.nimroad.gestcopro.app.model.entite.Dto;
 import fr.nimroad.gestcopro.app.solr.mapper.AbstractSolrMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.CoproprietaireMapper;
 import fr.nimroad.gestcopro.app.solr.mapper.ResidenceMapper;
 import fr.nimroad.gestcopro.app.util.PropertiesGetValue;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 public enum SolrHandler {
 	

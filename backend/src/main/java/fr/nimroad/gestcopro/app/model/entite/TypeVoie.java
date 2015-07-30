@@ -9,12 +9,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
-import fr.nimroad.gestcopro.app.model.entite.definition.SearchableTypeVoieDefinition;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
+import fr.nimroad.gestcopro.app.model.entite.definition.SearchableTypeVoieDefinition;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 @Getter
 @Setter

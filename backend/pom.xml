@@ -166,7 +166,7 @@
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
 		</dependency>
-		
+
 		<!-- Aop -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -190,55 +190,67 @@
 
 	<build>
 		<plugins>
-	      <plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-compiler-plugin</artifactId>
-	        <version>3.3</version>
-	        <configuration>
-	          <!-- or whatever version you use -->
-	          <source>${java.version}</source>
-	          <target>${java.version}</target>
-	        </configuration>
-	      </plugin>
-<!-- 	      <plugin> -->
-<!-- 	        <groupId>org.apache.maven.plugins</groupId> -->
-<!-- 	        <artifactId>maven-resources-plugin</artifactId> -->
-<!-- 	        <version>2.7</version> -->
-<!-- 	        <configuration> -->
-<!-- 	          <encoding>cp1252</encoding> -->
-<!-- 	        </configuration> -->
-<!-- 	      </plugin> -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.7</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
 				<configuration>
-					<complianceLevel>${java.version}</complianceLevel>
+					<!-- or whatever version you use -->
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
+			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-resources-plugin</artifactId> -->
+			<!-- <version>2.7</version> -->
+			<!-- <configuration> -->
+			<!-- <encoding>cp1252</encoding> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>aspectj-maven-plugin</artifactId> -->
+<!-- 				<version>1.7</version> -->
+<!-- 				<configuration> -->
+<!-- 					<complianceLevel>${java.version}</complianceLevel> -->
+<!-- 					<source>${java.version}</source> -->
+<!-- 					<target>${java.version}</target> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<phase>process-sources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>compile</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<dependencies> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.aspectj</groupId> -->
+<!-- 						<artifactId>aspectjrt</artifactId> -->
+<!-- 						<version>${aspectj.version}</version> -->
+<!-- 					</dependency> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.aspectj</groupId> -->
+<!-- 						<artifactId>aspectjtools</artifactId> -->
+<!-- 						<version>${aspectj.version}</version> -->
+<!-- 					</dependency> -->
+<!-- 				</dependencies> -->
+<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok-maven-plugin</artifactId>
+				<version>1.16.4.1</version>
 				<dependencies>
 					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjrt</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj.version}</version>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok</artifactId>
+						<version>0.99</version>
 					</dependency>
 				</dependencies>
 			</plugin>
-	    </plugins>
+		</plugins>
 	</build>
 
 	<scm>
