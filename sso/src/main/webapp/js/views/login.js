@@ -16,7 +16,23 @@ window.LoginView = Backbone.View.extend({
     connexion: function () {
         //On lance la recherche non?
         console.log("tentative de connexion");
+        event.preventDefault();
+        var url='api/security/connect/';
         
-        return true;
+        url = url + $('#loginText').val() + '/' + $('#passwordText').val();
+        
+        $.ajax({
+        	url:url,
+        	type:'GET',
+        	success:function(data){
+        		console.log(["Login request details: ", data]);
+        		
+        		if(data.error){
+        			console.log(data.error.text);
+        		} else {
+        			app.navigate("home", true);
+        		}
+        	}
+        });
     }
 });

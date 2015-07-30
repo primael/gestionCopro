@@ -1,6 +1,18 @@
+$.ajaxSetup({
+	statusCode : {
+		401 : function() {
+			window.location.replace('#login');
+		},
+		403 : function() {
+			window.location.replace('#denied');
+		}
+	}
+
+});
+
 Backbone.View.prototype.close = function() {
 	console.log('Closing view ' + this);
-	if(this.beforeClose){
+	if (this.beforeClose) {
 		this.beforeClose();
 	}
 	this.remove();
@@ -9,16 +21,27 @@ Backbone.View.prototype.close = function() {
 
 var AppRouter = Backbone.Router.extend({
 
-	initialize: function(){
-		$('#content').html(new LoginView().render().el);		
+	initialize : function() {
+		//$('#content').html(new LoginView().render().el);
 	},
 
-	routes:{
-		
+	routes : {
+		"home" : "home",
+		"" : "login"
 	},
+
+	home : function() {
+		this.headerView = new HeaderView();
+		$('.header').html(this.headerView.render().el);
+		$('#content').html('');
+	},
+
+	login : function() {
+		$('#content').html(new LoginView().render().el);
+	}
 });
 
-utils.loadTemplate(['LoginView'], function() {
-    app = new AppRouter();
-    Backbone.history.start();
+utils.loadTemplate([ 'LoginView', 'HeaderView' ], function() {
+	app = new AppRouter();
+	Backbone.history.start();
 });
