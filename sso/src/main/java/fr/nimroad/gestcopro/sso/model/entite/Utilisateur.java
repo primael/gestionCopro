@@ -41,7 +41,13 @@ public class Utilisateur implements Dto<Long> {
 	
 	private List<Profil> profil;
 	
-	@Column(nullable=false, length=32)
+	@Column(nullable=false)
 	private String email;
+	
+	@Column(nullable=false)
+	private String nom;
+	
+	@Column(nullable=false)
+	private String prenom;
 
 }

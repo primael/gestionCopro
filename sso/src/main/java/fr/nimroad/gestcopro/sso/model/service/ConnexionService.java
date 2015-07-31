@@ -11,5 +11,5 @@ public interface ConnexionService {
 	
 	boolean connected(String identifiant, String password);
 	
-	Utilisateur createUSer(String identifiant, String password, String email);
+	Utilisateur createUSer(String identifiant, String password, String email, String nom, String prenom);
 }

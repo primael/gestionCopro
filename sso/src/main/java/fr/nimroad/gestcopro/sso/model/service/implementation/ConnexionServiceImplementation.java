@@ -60,7 +60,7 @@ public enum ConnexionServiceImplementation implements ConnexionService {
 
 	@Override
 	@SneakyThrows
-	public Utilisateur createUSer(String identifiant, String password, String email) {
+	public Utilisateur createUSer(String identifiant, String password, String email, String nom, String prenom) {
 		  // Uses a secure Random not a simple Random
         SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
         // Salt generation 64 bits long
@@ -77,6 +77,8 @@ public enum ConnexionServiceImplementation implements ConnexionService {
         utilisateur.setEmail(email);
         utilisateur.setHashPassword(sDigest);
         utilisateur.setSalt(sSalt);
+        utilisateur.setNom(nom);
+        utilisateur.setPrenom(prenom);
         
         utilisateurDao.save(utilisateur);
         

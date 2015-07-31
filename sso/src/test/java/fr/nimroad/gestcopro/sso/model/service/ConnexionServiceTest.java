@@ -26,7 +26,7 @@ public class ConnexionServiceTest {
 	@Test
 	public void testCreationUtilisateur(){
 				
-		final Utilisateur utilisateur = instanceUnderTest.createUSer("primael", "aqwzsx123", "primael@l-infini.fr");
+		final Utilisateur utilisateur = instanceUnderTest.createUSer("primael", "aqwzsx123", "primael@l-infini.fr", "BRUANT", "Primaël");
 		
 		Assert.assertNotNull("Utilisateur créer", utilisateur);
 		
