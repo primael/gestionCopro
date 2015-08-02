@@ -8,8 +8,13 @@ define([
         'src/Page',
         'src/Permissions',
         'views/DefaultView',
-        'models/Session'       
-], function($, _, Backbone, Page, Permissions, DefaultView, Session){
+        'views/user_account/LoginPageView',
+        'views/HomeView',
+        'views/composants/HeaderView',
+        'views/composants/FooterView',
+        'models/Session',
+        'backbone_router'
+], function($, _, Backbone, Page, Permissions, DefaultView, LoginPageView, HomePageView, HeaderPageView, FooterPageView, Session){
 	
 	var AppRouter = Backbone.Router.extend({
 		//define the route and function maps for this router
@@ -19,7 +24,7 @@ define([
 		},
 		
 		route_permissions: {
-			"": Permissions.public
+			"login": Permissions.public
 		},
 		
 		init: function(){},
@@ -37,14 +42,58 @@ define([
 			// if the user is permitted to view the route.
 			var user = Session.get('user');
 			var permission = user.permission;
-			console.log(Session);
-			console.log(user);
 			if(!Permissions.validate(route, permission) && permission != Permissions.user){
 				this.navigate('login', {trigger: true});
 				return false;
 			}
 			//else direct then another area.
 			return true;
+		},
+		
+		session_change: function(){
+			var route = Backbone.history.fragment;
+			//if the user has just logged in
+			if(route != '' && Session.previous('auth') == false && Session.get('auth') == true) {
+				//redirect to homepage
+				//best to make this public page, in case it takes a second or 2 to update the model for some odd reason.
+				this.navigate('', {trigger: true});
+				return false;
+			}
+			//the user has just loggeed out.
+			else if(Session.get('auth') == false){
+				//redirect to login page.
+				this.navigate('login', {trigger: true});
+				return false;
+			}
+			
+			return true;
+		},
+		
+		initialize: function(){
+			Permissions.init(this.routes, this.route_permissions);
+			
+			Session.getAuth(function() {
+				Backbone.history.start();
+				Session.bind('change:auth', app_router.session_change, app_router);
+			});
+		},
+		
+		login: function(data){
+			Page.show(new LoginPageView({el: $('#content')}));
+		},
+		
+		home: function(){
+			var header = new HeaderPageView({el: $('.header'), template_name: 'composants/header'});
+			header.render();
+			
+			var footer = new FooterPageView({el: $('.footer'), template_name: 'composants/footer'});
+			footer.render();
+			
+			Page.show(new HomePageView({el: $('#content')}));
+			//$('#content').html('You\'re correctly log in application.');
 		}
-	})
+	});
+	
+	var app_router = new AppRouter();
+	return app_router;
 });

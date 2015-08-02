@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fr.nimroad.gestcopro.utils.model.entite.Dto;
 import lombok.Getter;
@@ -24,13 +28,16 @@ import lombok.ToString;
 @NamedQueries({
 	@NamedQuery(name="utilisateur.by.identifiant", query="select utilisateur from Utilisateur utilisateur where utilisateur.identifiant=:identifiant")
 })
+@JsonIgnoreProperties({"hashPassword", "salt"})
 public class Utilisateur implements Dto<Long> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="UTILISATEUR_SEQ")
+	@JsonProperty
 	private Long id;
 	
 	@Column(nullable=false, unique=true)
+	@JsonProperty
 	private String identifiant;
 	
 	@Column(nullable=false, length=32)
@@ -49,5 +56,12 @@ public class Utilisateur implements Dto<Long> {
 	
 	@Column(nullable=false)
 	private String prenom;
+	
+	@Transient
+	@JsonProperty
+	private String password;
+	
+	@Transient
+	private int permission = 4;
 
 }

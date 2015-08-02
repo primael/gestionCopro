@@ -17696,7 +17696,7 @@ viewport {
 	padding: 0 100px
 }
 
-.idnot-app {
+.thumbnail {
 	background-color: rgba(5, 29, 49, .5);
 	width: 160px;
 	height: 160px;
@@ -17704,63 +17704,63 @@ viewport {
 	margin: 3px 3px 0 0
 }
 
-.idnot-app.fake {
+.thumbnail.fake {
 	border: 2px dashed #FFF
 }
 
-.idnot-app .logo {
+.thumbnail .logo {
 	padding: 10px;
 	text-align: center;
 	padding: 20px 10px 10px;
 	overflow: hidden
 }
 
-.idnot-app .logo img {
+.thumbnail .logo img {
 	height: 70px
 }
 
-.idnot-app.no-icon {
+.thumbnail.no-icon {
 	border-left: 5px solid #1bbc9b;
 	background: rgba(5, 29, 49, .5) url(../images/shape.png) no-repeat top
 		25px left -2px
 }
 
-.idnot-app.no-icon-real {
+.thumbnail.no-icon-real {
 	border-left: 5px solid #ad9dfc;
 	background: rgba(5, 29, 49, .5) url(../images/shape-real.png) no-repeat
 		top 25px left -2px
 }
 
-.idnot-app .logo-default-shape {
+.thumbnail .logo-default-shape {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
 	float: left
 }
 
-.idnot-app .logo-default-shape {
+.thumbnail .logo-default-shape {
 	position: relative;
 	top: 25px;
 	left: -2px
 }
 
-.idnot-app .logo-default-shape img {
+.thumbnail .logo-default-shape img {
 	height: 100%
 }
 
-.idnot-app:hover .logo-default-shape, .idnot-app:hover .ribban,
-	.idnot-app:hover .ribban-real {
+.thumbnail:hover .logo-default-shape, .thumbnail:hover .ribban,
+	.thumbnail:hover .ribban-real {
 	display: none
 }
 
-.idnot-app .titre {
+.thumbnail .titre {
 	color: #fff;
 	text-align: center;
 	font-family: OpenSansBold;
 	font-size: 18px
 }
 
-.idnot-app.no-icon .titre, .idnot-app.no-icon-real .titre {
+.thumbnail.no-icon .titre, .thumbnail.no-icon-real .titre {
 	position: relative;
 	top: 28px;
 	text-align: left;
@@ -17772,8 +17772,8 @@ viewport {
 	text-transform: uppercase
 }
 
-.idnot-app .authent {
-	background: url(../images/phone-waves.png) no-repeat left 5px center;
+.thumbnail .authent {
+	background: url(../img/phone-waves.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 35px;
 	font-size: 10px;
 	font-family: OpenSansLightItalic;
@@ -17785,20 +17785,20 @@ viewport {
 	z-index: 9
 }
 
-.idnot-app .authent span, .idnot-app .cle-real span {
+.thumbnail .authent span, .thumbnail .cle-real span {
 	display: none
 }
 
-.idnot-app .authent:hover, .idnot-app .cle-real:hover {
+.thumbnail .authent:hover, .thumbnail .cle-real:hover {
 	background-color: #3687ae;
 	left: 0
 }
 
-.idnot-app .authent:hover span, .idnot-app .cle-real:hover span {
+.thumbnail .authent:hover span, .thumbnail .cle-real:hover span {
 	display: inline
 }
 
-.idnot-app .description {
+.thumbnail .description {
 	position: absolute;
 	display: none;
 	top: 0;
@@ -17810,7 +17810,7 @@ viewport {
 	color: #fff
 }
 
-.idnot-app .description .titre {
+.thumbnail .description .titre {
 	top: 0;
 	text-align: left;
 	padding: 2px;
@@ -17819,16 +17819,16 @@ viewport {
 	text-transform: none
 }
 
-.idnot-app:hover .logo, .idnot-app:hover .titre, .idnot-app:hover .titre-default
+.thumbnail:hover .logo, .thumbnail:hover .titre, .thumbnail:hover .titre-default
 	{
 	display: none
 }
 
-.idnot-app:hover .description, .idnot-app:hover .description .titre {
+.thumbnail:hover .description, .thumbnail:hover .description .titre {
 	display: block
 }
 
-.idnot-app:hover {
+.thumbnail:hover {
 	background: rgba(5, 29, 49, .5) url(../images/arrow-go.png) no-repeat
 		right 15px bottom 8px
 }
@@ -17843,42 +17843,42 @@ viewport {
 	cursor: pointer
 }
 
-#application .user-application-list .idnot-app {
+#application .user-application-list .thumbnail {
 	width: 150px;
 	height: 120px;
 	background-color: #3687ae
 }
 
-#application .user-application-list .idnot-app.inactive {
+#application .user-application-list .thumbnail.inactive {
 	background-color: #9eabb1
 }
 
-#application .user-application-list .idnot-app .logo {
+#application .user-application-list .thumbnail .logo {
 	padding: 10px
 }
 
-#application .user-application-list .idnot-app .logo img {
+#application .user-application-list .thumbnail .logo img {
 	height: 60px
 }
 
-#application .user-application-list .idnot-app .titre {
+#application .user-application-list .thumbnail .titre {
 	font-size: 14px
 }
 
-#application .user-application-list .idnot-app.no-icon .titre,
-	#application .user-application-list .idnot-app.no-icon-real .titre {
+#application .user-application-list .thumbnail.no-icon .titre,
+	#application .user-application-list .thumbnail.no-icon-real .titre {
 	top: 8px
 }
 
-#application .user-application-list .idnot-app.no-icon .description .titre,
-	#application .user-application-list .idnot-app.no-icon-real .description .titre
+#application .user-application-list .thumbnail.no-icon .description .titre,
+	#application .user-application-list .thumbnail.no-icon-real .description .titre
 	{
 	top: 0
 }
 
-#application .user-application-list .idnot-app.inactive .titre,
-	#application .idnot-app.inactive:hover .description, #application .idnot-app.inactive:hover .description .titre,
-	#application .idnot-app.inactive:hover .description .description {
+#application .user-application-list .thumbnail.inactive .titre,
+	#application .thumbnail.inactive:hover .description, #application .thumbnail.inactive:hover .description .titre,
+	#application .thumbnail.inactive:hover .description .description {
 	color: #000
 }
 
@@ -17894,7 +17894,7 @@ viewport {
 	border: 1px solid #CCC !important
 }
 
-.idnot-app .cle-real {
+.thumbnail .cle-real {
 	background: url(../images/cle-real.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 30px;
 	font-size: 10px;
@@ -20181,17 +20181,17 @@ ul.liste-navigateur li.firefox a {
 	#application #carousel-apps .carousel-inner ul li {
 		margin: 6px
 	}
-	.idnot-app {
+	.thumbnail {
 		width: 130px;
 		height: 130px
 	}
-	.idnot-app .logo {
+	.thumbnail .logo {
 		padding: 20px 10px 14px
 	}
-	.idnot-app .logo img {
+	.thumbnail .logo img {
 		height: 50px
 	}
-	.idnot-app .titre {
+	.thumbnail .titre {
 		font-family: OpenSansSemiBold;
 		font-size: 15px
 	}

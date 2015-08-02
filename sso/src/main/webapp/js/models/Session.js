@@ -7,7 +7,7 @@ define([
 	
 	var SessionModel = Backbone.Model.extend({
 		
-		urlRoot: '/session',
+		urlRoot: '/gestcoprosso/api/session',
 		
 		defaults: {
 			_csrf: '',
@@ -38,7 +38,7 @@ define([
 		login: function(user, error_msg){
 			//Do a POST to /session and send the serialized form creds
 			//{username: local.username, password: local.password}
-			var creds = {username: user.username, password: user.pasword, remenber_me: user.remember_me};
+			var creds = {identifiant: user.username, password: user.password};
 			this.save(creds, {
 				success: function(){},
 				error: error_msg

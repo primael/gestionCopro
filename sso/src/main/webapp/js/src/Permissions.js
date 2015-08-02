@@ -11,7 +11,7 @@ define([
 			user: 2,
 			admin: 4,
 			//mapping of the route it's permission to view it.
-			route_permissions: {},
+			routes_permissions: {},
 			//default is user
 			user_permission: 2,
 			
@@ -24,22 +24,23 @@ define([
 				var that = this;
 				
 				_.each(routes, function(route_func, route){
+					//remove everything after the /.
 					if(route.indexOf('/') !== -1) route = route.substring(0, route.indexOf('/'));
 					//if route is not defined in the permissions, then give the route a user permission.
 					if(!_.has(route_permissions, route)) {
 						route_permissions[route] = permissions.user;
 					}
 				});
-				this.route_permissions = route_permissions;
+				this.routes_permissions = route_permissions;
 			},
 			
 			validate: function(route, user_permission){
 				//remove everything after the /.
 				if(route.indexOf('/') !== -1) route = route.substring(0, route.indexOf('/'));
 				//if the route we are validating does not have a set permission, just return false.
-				if(!_.has(route_permissions, route)) return false;
+				if(!_.has(this.routes_permissions, route)) return false;
 				//if the user permissions are greater then or equal then let the boss in.
-				return(user_permission >= this.route_permissions[route]);
+				return(user_permission >= this.routes_permissions[route]);
 			}
 			
 	}
