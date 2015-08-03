@@ -5,21 +5,10 @@ import java.util.Map;
 
 import fr.nimroad.gestcopro.sso.model.dao.UtilisateurDao;
 import fr.nimroad.gestcopro.sso.model.entite.Utilisateur;
-import fr.nimroad.gestcopro.utils.model.dao.GenericDaoImpl;
 
-public class UtilisateurDaoImplemation extends GenericDaoImpl<Utilisateur, Long> implements UtilisateurDao {
+public enum UtilisateurDaoImplementation implements UtilisateurDao {
 
-	private UtilisateurDaoImplemation(){
-		super("gestcoprosso");
-	}
-	
-	private static class UtilisateurDaoHolder{
-		private final static UtilisateurDao INSTANCE = new UtilisateurDaoImplemation();
-	}
-	
-	public static UtilisateurDao getInstance(){
-		return UtilisateurDaoHolder.INSTANCE;
-	}
+	INSTANCE;
 	
 	@Override
 	public Utilisateur findByIdentifiant(String identifiant) {

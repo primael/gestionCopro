@@ -1,9 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.nimrod.info</groupId>
+		<artifactId>gestcopro</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
 	<groupId>fr.nimroad.gestcopro</groupId>
 	<artifactId>gestcoprosso</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<inceptionYear>2015</inceptionYear>
 	<url>https://github.com/primael/gestionCopro/</url>
@@ -11,10 +18,8 @@
 	<description>Gestion de copropriete - compte - coproprietaire</description>
 
 	<properties>
-		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.12</junit.version>
-		<lombok.version>1.12.6</lombok.version>
 		<jersey.version>2.17</jersey.version>
 	</properties>
 
@@ -142,18 +147,34 @@
 			<version>${jersey.version}</version>
 		</dependency>
 
+		<!-- MapDB -->
 		<dependency>
-			<groupId>fr.nimroad.gestcopro</groupId>
-			<artifactId>gestcoproutils</artifactId>
-			<version>1.0.0.BUILD-SNAPSHOT</version>
+			<groupId>org.mapdb</groupId>
+			<artifactId>mapdb</artifactId>
+			<version>1.0.8</version>
 		</dependency>
-
+		
 		<!-- SAML -->
 		<dependency>
 			<groupId>org.opensaml</groupId>
 			<artifactId>opensaml</artifactId>
 			<version>2.6.4</version>
 		</dependency>
+
+		<!-- GestCopro-Exception -->
+		<!--<dependency>
+			<groupId>fr.nimrod.info</groupId>
+			<artifactId>gestcopro-exception</artifactId>
+			<version>1.0.0</version>
+		</dependency>-->
+
+		<!-- GestCopro-Utils -->
+		<dependency>
+			<groupId>fr.nimroad.gestcopro</groupId>
+			<artifactId>gestcoproutils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

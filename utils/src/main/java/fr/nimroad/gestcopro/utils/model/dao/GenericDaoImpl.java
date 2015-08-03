@@ -17,7 +17,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import jersey.repackaged.com.google.common.base.Preconditions;
-import lombok.AccessLevel;
 import lombok.Getter;
 import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
@@ -25,7 +24,7 @@ public abstract class GenericDaoImpl<E extends Dto<?>, ID extends Serializable> 
 
 	private final Class<E> persistentClass;
 	
-	@Getter(AccessLevel.PUBLIC)
+	@Getter
 	private EntityManager entityManager;
 	
 	/**

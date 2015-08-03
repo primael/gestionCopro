@@ -408,7 +408,7 @@ img {
 	vertical-align: middle
 }
 
-.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img,
+.img-responsive, .appItem>img, .appItem a>img, .carousel-inner>.item>img,
 	.carousel-inner>.item>a>img {
 	display: block;
 	max-width: 100%;
@@ -419,7 +419,7 @@ img {
 	border-radius: 6px
 }
 
-.img-thumbnail {
+.img-appItem {
 	padding: 4px;
 	line-height: 1.42857143;
 	background-color: #fff;
@@ -4872,7 +4872,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	}
 }
 
-.thumbnail {
+.appItem {
 	display: block;
 	padding: 4px;
 	margin-bottom: 20px;
@@ -4884,16 +4884,16 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	transition: all .2s ease-in-out
 }
 
-.thumbnail>img, .thumbnail a>img {
+.appItem>img, .appItem a>img {
 	margin-left: auto;
 	margin-right: auto
 }
 
-a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
+a.appItem:hover, a.appItem:focus, a.appItem.active {
 	border-color: #428bca
 }
 
-.thumbnail .caption {
+.appItem .caption {
 	padding: 9px;
 	color: #333
 }
@@ -17696,7 +17696,11 @@ viewport {
 	padding: 0 100px
 }
 
-.thumbnail {
+.pageContainer > ul > li {
+	list-style: none;
+}
+
+.appItem {
 	background-color: rgba(5, 29, 49, .5);
 	width: 160px;
 	height: 160px;
@@ -17704,63 +17708,63 @@ viewport {
 	margin: 3px 3px 0 0
 }
 
-.thumbnail.fake {
+.appItem.fake {
 	border: 2px dashed #FFF
 }
 
-.thumbnail .logo {
+.appItem .logo {
 	padding: 10px;
 	text-align: center;
 	padding: 20px 10px 10px;
 	overflow: hidden
 }
 
-.thumbnail .logo img {
+.appItem .logo img {
 	height: 70px
 }
 
-.thumbnail.no-icon {
+.appItem.no-icon {
 	border-left: 5px solid #1bbc9b;
 	background: rgba(5, 29, 49, .5) url(../images/shape.png) no-repeat top
 		25px left -2px
 }
 
-.thumbnail.no-icon-real {
+.appItem.no-icon-real {
 	border-left: 5px solid #ad9dfc;
 	background: rgba(5, 29, 49, .5) url(../images/shape-real.png) no-repeat
 		top 25px left -2px
 }
 
-.thumbnail .logo-default-shape {
+.appItem .logo-default-shape {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
 	float: left
 }
 
-.thumbnail .logo-default-shape {
+.appItem .logo-default-shape {
 	position: relative;
 	top: 25px;
 	left: -2px
 }
 
-.thumbnail .logo-default-shape img {
+.appItem .logo-default-shape img {
 	height: 100%
 }
 
-.thumbnail:hover .logo-default-shape, .thumbnail:hover .ribban,
-	.thumbnail:hover .ribban-real {
+.appItem:hover .logo-default-shape, .appItem:hover .ribban,
+	.appItem:hover .ribban-real {
 	display: none
 }
 
-.thumbnail .titre {
+.appItem .titre {
 	color: #fff;
 	text-align: center;
 	font-family: OpenSansBold;
 	font-size: 18px
 }
 
-.thumbnail.no-icon .titre, .thumbnail.no-icon-real .titre {
+.appItem.no-icon .titre, .appItem.no-icon-real .titre {
 	position: relative;
 	top: 28px;
 	text-align: left;
@@ -17772,7 +17776,7 @@ viewport {
 	text-transform: uppercase
 }
 
-.thumbnail .authent {
+.appItem .authent {
 	background: url(../img/phone-waves.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 35px;
 	font-size: 10px;
@@ -17785,20 +17789,20 @@ viewport {
 	z-index: 9
 }
 
-.thumbnail .authent span, .thumbnail .cle-real span {
+.appItem .authent span, .appItem .cle-real span {
 	display: none
 }
 
-.thumbnail .authent:hover, .thumbnail .cle-real:hover {
+.appItem .authent:hover, .appItem .cle-real:hover {
 	background-color: #3687ae;
 	left: 0
 }
 
-.thumbnail .authent:hover span, .thumbnail .cle-real:hover span {
+.appItem .authent:hover span, .appItem .cle-real:hover span {
 	display: inline
 }
 
-.thumbnail .description {
+.appItem .description {
 	position: absolute;
 	display: none;
 	top: 0;
@@ -17810,7 +17814,7 @@ viewport {
 	color: #fff
 }
 
-.thumbnail .description .titre {
+.appItem .description .titre {
 	top: 0;
 	text-align: left;
 	padding: 2px;
@@ -17819,16 +17823,16 @@ viewport {
 	text-transform: none
 }
 
-.thumbnail:hover .logo, .thumbnail:hover .titre, .thumbnail:hover .titre-default
+.appItem:hover .logo, .appItem:hover .titre, .appItem:hover .titre-default
 	{
 	display: none
 }
 
-.thumbnail:hover .description, .thumbnail:hover .description .titre {
+.appItem:hover .description, .appItem:hover .description .titre {
 	display: block
 }
 
-.thumbnail:hover {
+.appItem:hover {
 	background: rgba(5, 29, 49, .5) url(../images/arrow-go.png) no-repeat
 		right 15px bottom 8px
 }
@@ -17843,42 +17847,42 @@ viewport {
 	cursor: pointer
 }
 
-#application .user-application-list .thumbnail {
+#application .user-application-list .appItem {
 	width: 150px;
 	height: 120px;
 	background-color: #3687ae
 }
 
-#application .user-application-list .thumbnail.inactive {
+#application .user-application-list .appItem.inactive {
 	background-color: #9eabb1
 }
 
-#application .user-application-list .thumbnail .logo {
+#application .user-application-list .appItem .logo {
 	padding: 10px
 }
 
-#application .user-application-list .thumbnail .logo img {
+#application .user-application-list .appItem .logo img {
 	height: 60px
 }
 
-#application .user-application-list .thumbnail .titre {
+#application .user-application-list .appItem .titre {
 	font-size: 14px
 }
 
-#application .user-application-list .thumbnail.no-icon .titre,
-	#application .user-application-list .thumbnail.no-icon-real .titre {
+#application .user-application-list .appItem.no-icon .titre,
+	#application .user-application-list .appItem.no-icon-real .titre {
 	top: 8px
 }
 
-#application .user-application-list .thumbnail.no-icon .description .titre,
-	#application .user-application-list .thumbnail.no-icon-real .description .titre
+#application .user-application-list .appItem.no-icon .description .titre,
+	#application .user-application-list .appItem.no-icon-real .description .titre
 	{
 	top: 0
 }
 
-#application .user-application-list .thumbnail.inactive .titre,
-	#application .thumbnail.inactive:hover .description, #application .thumbnail.inactive:hover .description .titre,
-	#application .thumbnail.inactive:hover .description .description {
+#application .user-application-list .appItem.inactive .titre,
+	#application .appItem.inactive:hover .description, #application .appItem.inactive:hover .description .titre,
+	#application .appItem.inactive:hover .description .description {
 	color: #000
 }
 
@@ -17894,7 +17898,7 @@ viewport {
 	border: 1px solid #CCC !important
 }
 
-.thumbnail .cle-real {
+.appItem .cle-real {
 	background: url(../images/cle-real.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 30px;
 	font-size: 10px;
@@ -20181,17 +20185,17 @@ ul.liste-navigateur li.firefox a {
 	#application #carousel-apps .carousel-inner ul li {
 		margin: 6px
 	}
-	.thumbnail {
+	.appItem {
 		width: 130px;
 		height: 130px
 	}
-	.thumbnail .logo {
+	.appItem .logo {
 		padding: 20px 10px 14px
 	}
-	.thumbnail .logo img {
+	.appItem .logo img {
 		height: 50px
 	}
-	.thumbnail .titre {
+	.appItem .titre {
 		font-family: OpenSansSemiBold;
 		font-size: 15px
 	}

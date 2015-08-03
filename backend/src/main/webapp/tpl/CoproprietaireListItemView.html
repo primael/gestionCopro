@@ -1,0 +1,23 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-1">
+			<img src="../img/picto_personnes.png" class="img-rounded img-responsive"/>
+		</div>
+		<div class="col-md-6">
+			<h4><%=name%> <%=prenom%></h4>
+			<small>
+				<cite title="<%=adresse.commune.nom %>, 94"><%=adresse.commune.nom %>, 94 
+					<i class="glyphicon glyphicon-map-marker"></i>
+				</cite>
+			</small>
+			<a href="#" onclick='toggler("more-<%=type%><%=id%>");'><span class="caret"></span></a>
+			<p id="more-<%=type%><%=id%>" style="display: none; font-size:14px;">
+				<i class="glyphicon glyphicon-envelope"></i><%= email%>
+				<br />
+				<i class="glyphicon glyphicon-phone"></i><a href="#"><%= mobile%></a>
+				<br />
+				<i class="glyphicon glyphicon-phone-alt"></i><a href="#"><%= fixe%></a>
+			</p>
+		</div>
+	</div>
+</div>

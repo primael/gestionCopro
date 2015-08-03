@@ -6,10 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import fr.nimroad.gestcopro.utils.model.entite.Dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
 @Getter
 @Setter

@@ -53,6 +53,8 @@ public class SecurityServices {
 			//On récupère l'utilisateur
 			Utilisateur user = utilisateurService.getUtilisateur(utilisateur.getIdentifiant());
 			
+			//On créer un jeton de connexion
+			
 			//On créer l'objet de réponse
 			AuthenticationObject entity = new AuthenticationObject();
 			entity.setAuth(true);

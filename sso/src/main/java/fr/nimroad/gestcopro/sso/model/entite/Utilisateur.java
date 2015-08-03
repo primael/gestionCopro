@@ -12,13 +12,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fr.nimroad.gestcopro.utils.model.entite.Dto;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -59,7 +60,7 @@ public class Utilisateur implements Dto<Long> {
 	
 	@Transient
 	@JsonProperty
-	private String password;
+	private transient String password;
 	
 	@Transient
 	private int permission = 4;
