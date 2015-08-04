@@ -17,7 +17,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fr.nimroad.gestcopro.utils.model.entite.Dto;
 
@@ -32,13 +31,13 @@ import fr.nimroad.gestcopro.utils.model.entite.Dto;
 @JsonIgnoreProperties({"hashPassword", "salt"})
 public class Utilisateur implements Dto<Long> {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="UTILISATEUR_SEQ")
-	@JsonProperty
 	private Long id;
 	
 	@Column(nullable=false, unique=true)
-	@JsonProperty
 	private String identifiant;
 	
 	@Column(nullable=false, length=32)
@@ -59,10 +58,8 @@ public class Utilisateur implements Dto<Long> {
 	private String prenom;
 	
 	@Transient
-	@JsonProperty
 	private transient String password;
 	
 	@Transient
 	private int permission = 4;
-
 }

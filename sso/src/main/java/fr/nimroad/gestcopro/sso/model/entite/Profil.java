@@ -18,6 +18,8 @@ import fr.nimroad.gestcopro.utils.model.entite.Dto;
 @SequenceGenerator(name = "PROFIL_SEQ", sequenceName = "SEQ_PROFIL", allocationSize = 1)
 public class Profil implements Dto<Integer>{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PROFIL_SEQ")
 	private Integer id;

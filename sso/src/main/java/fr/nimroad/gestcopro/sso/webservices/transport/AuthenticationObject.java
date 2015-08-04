@@ -1,7 +1,5 @@
 package fr.nimroad.gestcopro.sso.webservices.transport;
 
-import java.util.UUID;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,5 +23,5 @@ public class AuthenticationObject {
 	private Utilisateur user;
 	
 	@JsonProperty
-	private UUID token;
+	private String token;
 }

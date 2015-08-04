@@ -33,6 +33,8 @@ import fr.nimroad.gestcopro.utils.model.entite.Dto;
 @EqualsAndHashCode
 public abstract class Token implements Dto<Long> {
 
+	private static final long serialVersionUID = 1L;
+	
     @Getter
     @Setter
     @Id

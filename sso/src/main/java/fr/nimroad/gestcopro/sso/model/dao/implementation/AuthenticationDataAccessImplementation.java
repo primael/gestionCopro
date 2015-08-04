@@ -59,7 +59,7 @@ public static final TokenDataAccessImplementation<AuthenticationToken> INSTANCE 
         }
     }
     
-    public AuthenticationToken createEntity(AuthenticationToken entity) throws GestCoproException {
+    public AuthenticationToken save(AuthenticationToken entity) throws GestCoproException {
        
         //Inscription dans la carte utilisateurs
         addAuthenticationTokenToTokens(entity);

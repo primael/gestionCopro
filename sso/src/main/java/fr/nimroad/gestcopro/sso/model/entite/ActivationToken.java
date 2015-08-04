@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("activation")
 public class ActivationToken extends Token {
 
+	private static final long serialVersionUID = 1L;
+	
     public ActivationToken(Utilisateur utilisateur) {
         super(utilisateur);
     }

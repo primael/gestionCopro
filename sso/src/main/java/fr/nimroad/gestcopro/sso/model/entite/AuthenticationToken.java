@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationToken extends Token {
 
+	private static final long serialVersionUID = 1L;
+	
     public AuthenticationToken(Utilisateur utilisateur) {
         super(utilisateur);
     }

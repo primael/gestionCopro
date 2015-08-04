@@ -144,23 +144,6 @@ public interface DataAccessObject<PK extends Serializable, E extends Dto<?>> {
 	}
 	
 	default List<E> findWhithNamedQuery(String namedQuery, Map<String, Object> parameters, int resultLimits) {
-		TypedQuery<E> requete = getRequest(namedQuery, parameters);
-		
-		if(resultLimits > 0){
-			requete.setMaxResults(resultLimits);
-		}
-		
-		return requete.getResultList();
-	}
-
-	default E findOneWhithNamedQuery(String namedQuery, Map<String, Object> parameters) {
-		TypedQuery<E> requete = getRequest(namedQuery, parameters);
-		
-		return (E) requete.getSingleResult();
-    }
-	
-	default TypedQuery<E> getRequest(String namedQuery, Map<String, Object> parameters){
-		
 		@Cleanup
 		EntityManager entityManager = FACTORY.createEntityManager();
 		Set<Entry<String, Object>> rawParameters = parameters.entrySet();
@@ -170,6 +153,24 @@ public interface DataAccessObject<PK extends Serializable, E extends Dto<?>> {
 			requete.setParameter(entry.getKey(), entry.getValue());
 		}
 		
-		return requete;
+		if(resultLimits > 0){
+			requete.setMaxResults(resultLimits);
+		}
+		
+		return requete.getResultList();
 	}
+
+	default E findOneWhithNamedQuery(String namedQuery, Map<String, Object> parameters) {
+		@Cleanup
+		EntityManager entityManager = FACTORY.createEntityManager();
+		Set<Entry<String, Object>> rawParameters = parameters.entrySet();
+		TypedQuery<E> requete = entityManager.createNamedQuery(namedQuery, getClassObject());
+		
+		for(Entry<String, Object> entry : rawParameters){
+			requete.setParameter(entry.getKey(), entry.getValue());
+		}
+
+		return (E) requete.getSingleResult();
+    }
+	
 }

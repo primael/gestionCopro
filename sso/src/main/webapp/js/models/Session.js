@@ -14,7 +14,8 @@ define([
 			auth: '',
 			user: {
 				permission: Permissions.public
-			}
+			},
+			token: ''
 		},
 		
 		initialize: function(){

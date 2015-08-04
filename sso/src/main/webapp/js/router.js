@@ -12,9 +12,10 @@ define([
         'views/HomeView',
         'views/composants/HeaderView',
         'views/composants/FooterView',
+        'views/composants/ProfileView',
         'models/Session',
         'backbone_router'
-], function($, _, Backbone, Page, Permissions, DefaultView, LoginPageView, HomePageView, HeaderPageView, FooterPageView, Session){
+], function($, _, Backbone, Page, Permissions, DefaultView, LoginPageView, HomePageView, HeaderPageView, FooterPageView, ProfilePageView, Session){
 	
 	var AppRouter = Backbone.Router.extend({
 		//define the route and function maps for this router
@@ -85,6 +86,9 @@ define([
 		home: function(){
 			var header = new HeaderPageView({el: $('.header'), template_name: 'composants/header'});
 			header.render();
+			
+			var profile = new ProfilePageView({el: $('.sidebar-right'), template_name: 'composants/profil'});
+			profile.render();
 			
 			var footer = new FooterPageView({el: $('.footer'), template_name: 'composants/footer'});
 			footer.render();
