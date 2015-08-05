@@ -1,0 +1,140 @@
+<div class="compositeView">
+
+	<div class="picto-accueil">
+		<a class="home" href="#"> <i class="fa fa-home picto-accueil-fa"></i> <span
+			class="picto-accueil-hidden"> &nbsp;&nbsp;Accueil </span>
+		</a>
+	</div>
+	<div class="page-title">
+		<h1 fadein animated>Mes informations</h1>
+	</div>
+	<div class="page-content fadeIn animated">
+		<div id="cartoucheUser">
+			<div class="consultEditView">
+				<div class="cartouche row fiche-utilisateur">
+					<div class="encart-photo">
+						<div class="photo-utilisateur">
+							<img alt="Photo utilisateur" src="img/user.png">
+							<div class="btn-default fileinput-button">
+								<div>Cliquez ici pour modifier l'image</div>
+								<input id="fileupload" type="file" name="fileupload" multiple="" > <!-- data-url="protected/spa/admin/user/photo/upload/192060" -->
+							</div>
+						</div>
+					</div>
+					<div class="encart-informations">
+						<div class="identite"><%=prenom%> <%=nom%></div>
+						<div class="fonction">STF</div>
+						<div class="courriel icone">
+							<i class="fa fa-envelope-o fa-fw fa-2x"></i> 
+							<span class="value"><%=email%></span>
+							<span> 
+								<a class="edit-link" href="#selfService/modifCourrielInit"> 
+									<i class="fa fa-pencil fa-fw fa-1x"></i> Modifier
+								</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		    <div id="monIdentiteContainer" class=" col-xs-12  col-sm-12  col-md-6  col-lg-6">
+		    	<div class="consultEditView">
+					<div class="panel panel-default"> 
+						<div class="panel-heading">Mon identit&eacute; 
+							<button type="button" class="btn btnEdit" id="f9fdb6be-be6a-ffd2-8c9e-e645f65555df">
+								<i class="fa fa-fw fa-pencil"></i> 
+								Modifier
+							</button>
+						</div> 
+						<div class="panel-body">
+							<form novalidate="" class="form-horizontal" role="form">
+								<div class="form-group "> 
+									<label class="control-label col-sm-5 col-md-5 col-lg-5" for="civilite">Civilit&eacute;</label> 
+									<div class="col-sm-7 col-md-7 col-lg-7 "> 
+										<div class="form-control-static">
+											<div class="">Monsieur</div>
+										</div> 
+									</div> 
+								</div> 
+							  	<div class="form-group "> 
+							  		<label class="control-label col-sm-5 col-md-5 col-lg-5" for="nom">Nom</label> 
+							  		<div class="col-sm-7 col-md-7 col-lg-7 "> 
+							  			<div class="form-control-static">
+							  				<div class=""><%=nom%></div>
+							  			</div> 
+							  		</div> 
+							  	</div> 
+								<div class="form-group "> 
+									<label class="control-label col-sm-5 col-md-5 col-lg-5" for="prenom">Pr&eacute;nom</label> 
+									<div class="col-sm-7 col-md-7 col-lg-7 "> 
+										<div class="form-control-static">
+											<div class=""><%=prenom%></div>
+										</div> 
+									</div> 
+								</div> 
+								<div class="form-group "> 
+									<label class="control-label col-sm-5 col-md-5 col-lg-5" for="dateNaissance">Date de naissance</label> 
+									<div class="col-sm-7 col-md-7 col-lg-7 "> 
+										<div class="form-control-static">
+											<div class="date right">14/11/1979</div>
+										</div> 
+									</div> 
+								</div> 
+							</form>
+						</div> 
+					</div>
+				</div>
+			</div> 
+		    <div id="mesCoordonneesProfContainer" class=" col-xs-12  col-sm-12  col-md-6  col-lg-6">
+				<div class="consultEditView">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Mes coordonn&eacute;es
+							<button type="button" class="btn btnEdit"
+								id="002568fc-0452-641e-3a14-882321046d2c">
+								<i class="fa fa-fw fa-pencil"></i> Modifier
+							</button>
+						</div>
+						<div class="panel-body">
+							<form novalidate="" class="form-horizontal" role="form">
+								<div class="form-group ">
+									<label class="control-label col-sm-4 col-md-4 col-lg-4"
+										for="telephoneFixe">T&eacute;l&eacute;phone fixe</label>
+									<div class="col-sm-8 col-md-8 col-lg-8 ">
+										<div class="form-control-static">
+											<div><%=fixe%></div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<label class="control-label col-sm-4 col-md-4 col-lg-4"
+										for="telephoneMobile">T&eacute;l&eacute;phone mobile</label>
+									<div class="col-sm-8 col-md-8 col-lg-8 ">
+										<div class="form-control-static">
+											<div><%=mobile%></div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<label class="control-label col-sm-4 col-md-4 col-lg-4"
+										for="email">Courriel</label>
+									<div class="col-sm-8 col-md-8 col-lg-8 ">
+										<div class="form-control-static">
+											<div><%=email%></div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		  <div id="mesInformationsProfContainer" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		  	<div class="consultEditView">
+			</div>
+		</div>
+  	</div>
+	</div>
+</div>

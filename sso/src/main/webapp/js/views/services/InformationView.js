@@ -2,10 +2,11 @@ define([
         'jquery',
         'underscore',
         'backbone',
-        'text!templates/composants/profil.html',
+        'text!templates/services/information.html',
         'models/Session',
+        'router',
         'jqueryui'
-], function($, _, Backbone, view_template, Session){
+], function($, _, Backbone, view_template, Session, Routeur){
 	
 	var PageView = Backbone.View.extend({
 		
@@ -13,11 +14,9 @@ define([
 		},
 		
 		events: {
-	        "click .deconnexion"   : "click_deconnexion",
-	        "click .account"       : "click_account"
-	        	
+	        "click .home"   : "click_home"
 	    },
-	    		
+	    
 		render: function(){
 			var template_options = {};
 			this.template = _.template(view_template, template_options);
@@ -25,16 +24,11 @@ define([
 			
 			return new_view;
 		},
-		
-		click_deconnexion: function(event){
-			Session.logout();
-		},
-		
-		click_account: function(event){
-			$('.sidebar-right').toggle('slide', {direction:'right'});
-			window.location = '#information';
-		}
+	    
+	    click_home: function(event){
+	    	Backbone.history.navigate("");
+	    }
 	});
-	
+		
 	return PageView;
 });

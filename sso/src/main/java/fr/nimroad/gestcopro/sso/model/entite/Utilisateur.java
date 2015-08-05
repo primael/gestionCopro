@@ -62,4 +62,8 @@ public class Utilisateur implements Dto<Long> {
 	
 	@Transient
 	private int permission = 4;
+	
+	private String fixe;
+	
+	private String mobile;
 }

@@ -1,107 +1,3 @@
-.container .logo {
-	height: 55px;
-	margin: 30px 0 10px 0;
-}
-
-.container h1 {
-	font-size: 26px;
-	text-align: center;
-	/*font-family: 'OpenSansBold';*/
-	margin-top: 0;
-}
-
-.container h2 {
-	font-size: 18px;
-	text-align: center;
-	margin: 10px 10px;
-}
-
-.container h3 {
-	font-size: 18px;
-	/*font-family: 'OpenSansSemiBold';*/
-}
-
-.container .panel {
-	margin: 30px 0;
-	color: #00245d;
-	border-radius: 0;
-	border-color: #bcbdbf;
-	background-color: rgba(255, 255, 255, 0.8);
-}
-
-.container .panel .panel-default {
-	background-color: transparent;
-}
-
-.container .panel .panel-heading {
-	text-align: center;
-	font-size: 24px;
-	/*font-family: 'OpenSansBold';*/
-	color: #00245d;
-	background-color: transparent;
-	border-radius: 0;
-	border-color: #bcbdbf;
-}
-
-.container .panel .panel-body {
-	padding: 10px 40px 30px 40px;
-	background-color: transparent;
-}
-
-.container .panel .panel-body label {
-	text-transform: uppercase;
-	width: 200px;
-	padding: 0;
-}
-
-.container .panel .panel-body input {
-	color: #000;
-	font-family: helvetica, arial, verdana;
-}
-
-.container .panel .panel-body .form-group {
-	margin: 15px 0 30px 0;
-	border: 1px solid transparent;
-}
-
-.container .panel .panel-body .form-group .form-control {
-	background-color: #dddee0;
-	border-radius: 0;
-	border-color: #dddee0;
-	-webkit-box-shadow: 0 0 0;
-	box-shadow: 0 0 0;
-}
-
-.container .panel .panel-body .form-group .form-control:focus {
-	box-shadow: inset 0px 0px 5px #83a9f7;
-}
-
-.container .btn-toolbar {
-	text-align: center;
-	padding: 10px 0;
-}
-
-.container .btn-toolbar .btn-group {
-	float: none;
-}
-
-.container .btn-toolbar .btn-group button {
-	background-color: #1bbc9b;
-	color: white;
-	text-transform: uppercase;
-	padding: 10px 15px;
-	font-size: 12px;
-	border: 0;
-	border-radius: 0;
-	margin: 0px 10px;
-}
-
-.container button.btn.connexion {
-	padding-left: 50px;
-	padding-right: 50px;
-	/*font-family: 'OpenSansSemiBold';*/
-}
-
 @charset "UTF-8"; 
 
 html {
@@ -408,7 +304,7 @@ img {
 	vertical-align: middle
 }
 
-.img-responsive, .appItem>img, .appItem a>img, .carousel-inner>.item>img,
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img,
 	.carousel-inner>.item>a>img {
 	display: block;
 	max-width: 100%;
@@ -419,7 +315,7 @@ img {
 	border-radius: 6px
 }
 
-.img-appItem {
+.img-thumbnail {
 	padding: 4px;
 	line-height: 1.42857143;
 	background-color: #fff;
@@ -4872,7 +4768,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	}
 }
 
-.appItem {
+.thumbnail {
 	display: block;
 	padding: 4px;
 	margin-bottom: 20px;
@@ -4884,16 +4780,16 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	transition: all .2s ease-in-out
 }
 
-.appItem>img, .appItem a>img {
+.thumbnail>img, .thumbnail a>img {
 	margin-left: auto;
 	margin-right: auto
 }
 
-a.appItem:hover, a.appItem:focus, a.appItem.active {
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	border-color: #428bca
 }
 
-.appItem .caption {
+.thumbnail .caption {
 	padding: 9px;
 	color: #333
 }
@@ -6483,7 +6379,7 @@ html.off {
 }
 
 body {
-	background: url(../img/background-bleu.jpg) no-repeat top center
+	background: url(../images/background-bleu.jpg) no-repeat top center
 		fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -6559,30 +6455,30 @@ a {
 	background-color: #9dacb3
 }
 
- ul li h4 {
+#application ul li h4 {
 	font-family: OpenSansSemiBold;
 	font-size: 16px
 }
 
- ul.clickable li {
+#application ul.clickable li {
 	cursor: pointer
 }
 
- ul.striped {
+#application ul.striped {
 	border-bottom: 1px solid #bbbbbc
 }
 
- ul.striped li {
+#application ul.striped li {
 	border-radius: 0;
 	margin: 0;
 	border-top: 1px solid #bbbbbc
 }
 
- table.table-striped tbody tr.selected td {
+#application table.table-striped tbody tr.selected td {
 	background-color: rgba(53, 126, 189, .26)
 }
 
- ul li .middle {
+#application ul li .middle {
 	padding: 12px
 }
 
@@ -6657,27 +6553,27 @@ table.table tfoot tr td {
 	margin-left: 7px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement .result-list
+#application .fiche-utilisateur-admin .cartouche .section-rattachement .result-list
 	{
 	padding-right: 0
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement h4
+#application .fiche-utilisateur-admin .cartouche .section-rattachement h4
 	{
 	margin: 0 0 10px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement h4 span
+#application .fiche-utilisateur-admin .cartouche .section-rattachement h4 span
 	{
 	font-size: 14px;
 	font-family: OpenSansRegular
 }
 
- .result-list h3 span {
+#application .result-list h3 span {
 	font-size: 26px
 }
 
- .result-list table.table tbody tr {
+#application .result-list table.table tbody tr {
 	cursor: pointer
 }
 
@@ -6688,36 +6584,36 @@ table.table tfoot tr td {
 	font-family: OpenSansSemiBold
 }
 
- .filtre-box {
+#application .filtre-box {
 	background-color: #FFF;
 	padding-bottom: 20px
 }
 
- .filtre-box h3 {
+#application .filtre-box h3 {
 	text-transform: uppercase;
 	margin: 15px 0;
 	font-size: 16px;
 	font-family: OpenSansBold
 }
 
- .filtre-box h4 {
+#application .filtre-box h4 {
 	font-size: 15px;
 	margin: 25px 0 10px
 }
 
- .filtre-box .filtre-content {
+#application .filtre-box .filtre-content {
 	padding-left: 20px
 }
 
- .filtre-box .filtre-content a {
+#application .filtre-box .filtre-content a {
 	cursor: pointer
 }
 
- .filtre-box .filtre-content .icon-libelle i {
+#application .filtre-box .filtre-content .icon-libelle i {
 	font-size: 22px
 }
 
- .filtre-box .filtre-content .icon-libelle span {
+#application .filtre-box .filtre-content .icon-libelle span {
 	top: -3px;
 	font-size: 12px
 }
@@ -17641,11 +17537,11 @@ viewport {
 	width: device-width
 }
 
- #carousel-apps {
+#application #carousel-apps {
 	margin: 40px 0 0
 }
 
- #carousel-apps .carousel-indicators {
+#application #carousel-apps .carousel-indicators {
 	position: static;
 	bottom: 0;
 	left: 0;
@@ -17655,52 +17551,48 @@ viewport {
 	text-align: center
 }
 
- #carousel-apps .carousel-control {
+#application #carousel-apps .carousel-control {
 	background: transparent;
 	width: 100px
 }
 
- #carousel-apps .carousel-control.left {
+#application #carousel-apps .carousel-control.left {
 	background: url(../images/prev.png) no-repeat center center
 }
 
- #carousel-apps .carousel-control.right {
+#application #carousel-apps .carousel-control.right {
 	background: url(../images/next.png) no-repeat center center
 }
 
- #carousel-apps .carousel-inner {
+#application #carousel-apps .carousel-inner {
 	width: auto
 }
 
- #carousel-apps .carousel-inner ul {
+#application #carousel-apps .carousel-inner ul {
 	height: 365px;
 	list-style-type: none;
 	margin: 0 auto;
 	padding: 0
 }
 
- #carousel-apps .carousel-inner ul li {
+#application #carousel-apps .carousel-inner ul li {
 	float: left;
 	margin: 10px 11px;
 	position: relative
 }
 
- #carousel-apps .carousel-inner ul li .ribban,  #carousel-apps .carousel-inner ul li .ribban-real
+#application #carousel-apps .carousel-inner ul li .ribban, #application #carousel-apps .carousel-inner ul li .ribban-real
 	{
 	position: absolute;
 	top: 0;
 	right: 0
 }
 
- #carousel-apps .carousel-inner .pageContainer {
+#application #carousel-apps .carousel-inner .pageContainer {
 	padding: 0 100px
 }
 
-.pageContainer > ul > li {
-	list-style: none;
-}
-
-.appItem {
+.idnot-app {
 	background-color: rgba(5, 29, 49, .5);
 	width: 160px;
 	height: 160px;
@@ -17708,63 +17600,63 @@ viewport {
 	margin: 3px 3px 0 0
 }
 
-.appItem.fake {
+.idnot-app.fake {
 	border: 2px dashed #FFF
 }
 
-.appItem .logo {
+.idnot-app .logo {
 	padding: 10px;
 	text-align: center;
 	padding: 20px 10px 10px;
 	overflow: hidden
 }
 
-.appItem .logo img {
+.idnot-app .logo img {
 	height: 70px
 }
 
-.appItem.no-icon {
+.idnot-app.no-icon {
 	border-left: 5px solid #1bbc9b;
 	background: rgba(5, 29, 49, .5) url(../images/shape.png) no-repeat top
 		25px left -2px
 }
 
-.appItem.no-icon-real {
+.idnot-app.no-icon-real {
 	border-left: 5px solid #ad9dfc;
 	background: rgba(5, 29, 49, .5) url(../images/shape-real.png) no-repeat
 		top 25px left -2px
 }
 
-.appItem .logo-default-shape {
+.idnot-app .logo-default-shape {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
 	float: left
 }
 
-.appItem .logo-default-shape {
+.idnot-app .logo-default-shape {
 	position: relative;
 	top: 25px;
 	left: -2px
 }
 
-.appItem .logo-default-shape img {
+.idnot-app .logo-default-shape img {
 	height: 100%
 }
 
-.appItem:hover .logo-default-shape, .appItem:hover .ribban,
-	.appItem:hover .ribban-real {
+.idnot-app:hover .logo-default-shape, .idnot-app:hover .ribban,
+	.idnot-app:hover .ribban-real {
 	display: none
 }
 
-.appItem .titre {
+.idnot-app .titre {
 	color: #fff;
 	text-align: center;
 	font-family: OpenSansBold;
 	font-size: 18px
 }
 
-.appItem.no-icon .titre, .appItem.no-icon-real .titre {
+.idnot-app.no-icon .titre, .idnot-app.no-icon-real .titre {
 	position: relative;
 	top: 28px;
 	text-align: left;
@@ -17776,8 +17668,8 @@ viewport {
 	text-transform: uppercase
 }
 
-.appItem .authent {
-	background: url(../img/phone-waves.png) no-repeat left 5px center;
+.idnot-app .authent {
+	background: url(../images/phone-waves.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 35px;
 	font-size: 10px;
 	font-family: OpenSansLightItalic;
@@ -17789,20 +17681,20 @@ viewport {
 	z-index: 9
 }
 
-.appItem .authent span, .appItem .cle-real span {
+.idnot-app .authent span, .idnot-app .cle-real span {
 	display: none
 }
 
-.appItem .authent:hover, .appItem .cle-real:hover {
+.idnot-app .authent:hover, .idnot-app .cle-real:hover {
 	background-color: #3687ae;
 	left: 0
 }
 
-.appItem .authent:hover span, .appItem .cle-real:hover span {
+.idnot-app .authent:hover span, .idnot-app .cle-real:hover span {
 	display: inline
 }
 
-.appItem .description {
+.idnot-app .description {
 	position: absolute;
 	display: none;
 	top: 0;
@@ -17814,7 +17706,7 @@ viewport {
 	color: #fff
 }
 
-.appItem .description .titre {
+.idnot-app .description .titre {
 	top: 0;
 	text-align: left;
 	padding: 2px;
@@ -17823,82 +17715,82 @@ viewport {
 	text-transform: none
 }
 
-.appItem:hover .logo, .appItem:hover .titre, .appItem:hover .titre-default
+.idnot-app:hover .logo, .idnot-app:hover .titre, .idnot-app:hover .titre-default
 	{
 	display: none
 }
 
-.appItem:hover .description, .appItem:hover .description .titre {
+.idnot-app:hover .description, .idnot-app:hover .description .titre {
 	display: block
 }
 
-.appItem:hover {
+.idnot-app:hover {
 	background: rgba(5, 29, 49, .5) url(../images/arrow-go.png) no-repeat
 		right 15px bottom 8px
 }
 
- .user-application-list ul {
+#application .user-application-list ul {
 	list-style: none
 }
 
- .user-application-list ul li {
+#application .user-application-list ul li {
 	float: left;
 	margin: 10px;
 	cursor: pointer
 }
 
- .user-application-list .appItem {
+#application .user-application-list .idnot-app {
 	width: 150px;
 	height: 120px;
 	background-color: #3687ae
 }
 
- .user-application-list .appItem.inactive {
+#application .user-application-list .idnot-app.inactive {
 	background-color: #9eabb1
 }
 
- .user-application-list .appItem .logo {
+#application .user-application-list .idnot-app .logo {
 	padding: 10px
 }
 
- .user-application-list .appItem .logo img {
+#application .user-application-list .idnot-app .logo img {
 	height: 60px
 }
 
- .user-application-list .appItem .titre {
+#application .user-application-list .idnot-app .titre {
 	font-size: 14px
 }
 
- .user-application-list .appItem.no-icon .titre,
-	 .user-application-list .appItem.no-icon-real .titre {
+#application .user-application-list .idnot-app.no-icon .titre,
+	#application .user-application-list .idnot-app.no-icon-real .titre {
 	top: 8px
 }
 
- .user-application-list .appItem.no-icon .description .titre,
-	 .user-application-list .appItem.no-icon-real .description .titre
+#application .user-application-list .idnot-app.no-icon .description .titre,
+	#application .user-application-list .idnot-app.no-icon-real .description .titre
 	{
 	top: 0
 }
 
- .user-application-list .appItem.inactive .titre,
-	 .appItem.inactive:hover .description,  .appItem.inactive:hover .description .titre,
-	 .appItem.inactive:hover .description .description {
+#application .user-application-list .idnot-app.inactive .titre,
+	#application .idnot-app.inactive:hover .description, #application .idnot-app.inactive:hover .description .titre,
+	#application .idnot-app.inactive:hover .description .description {
 	color: #000
 }
 
- .recaptchatable {
+#application .recaptchatable {
 	background-color: #FFF;
 	border: 1px solid #CCC
 }
 
- input[name=recaptcha_response_field] {
+#application input[name=recaptcha_response_field] {
 	color: #555;
 	font-size: 12px;
 	padding: 5px 10px;
 	border: 1px solid #CCC !important
 }
 
-.appItem .cle-real {
+.idnot-app .cle-real {
 	background: url(../images/cle-real.png) no-repeat left 5px center;
 	padding: 5px 5px 7px 30px;
 	font-size: 10px;
@@ -17911,168 +17803,168 @@ viewport {
 	z-index: 9
 }
 
- #carousel-apps .hidden.active {
+#application #carousel-apps .hidden.active {
 	display: inline-block !important;
 	visibility: visible !important
 }
 
- #carousel-apps .active-class {
+#application #carousel-apps .active-class {
 	display: none
 }
 
- #carousel-apps .active {
+#application #carousel-apps .active {
 	display: inline-block
 }
 
- .cartouche {
+#application .cartouche {
 	border-bottom: 1px solid #bbb;
 	padding: 20px
 }
 
- .cartouche .panel {
+#application .cartouche .panel {
 	margin: 0
 }
 
- .cartouche .row.block {
+#application .cartouche .row.block {
 	border: 1px solid #E9E9E9
 }
 
- .cartouche .row.block .panel {
+#application .cartouche .row.block .panel {
 	border: 0
 }
 
- .cartouche h2 {
+#application .cartouche h2 {
 	font-size: 26px;
 	font-family: OpenSansBold;
 	color: #4c5157;
 	margin: 5px 0
 }
 
- .cartouche .description {
+#application .cartouche .description {
 	font-size: 18px;
 	font-family: OpenSansRegular;
 	color: #4c5157;
 	margin: 5px 0
 }
 
- .cartouche .courriel {
+#application .cartouche .courriel {
 	margin: 15px 0 0;
 	line-height: 40px
 }
 
- .cartouche .courriel span {
+#application .cartouche .courriel span {
 	position: relative;
 	top: -5px;
 	padding: 0 20px 0 0
 }
 
- .cartouche .actions {
+#application .cartouche .actions {
 	text-align: right
 }
 
- .cartouche .actions button {
+#application .cartouche .actions button {
 	margin: 3px 0
 }
 
- .cartouche .compte-bloque {
+#application .cartouche .compte-bloque {
 	margin-top: 15px;
 	position: relative
 }
 
- .cartouche.fiche-application .encart-logo {
+#application .cartouche.fiche-application .encart-logo {
 	width: 163px;
 	float: left
 }
 
- .cartouche.fiche-application .encart-informations {
+#application .cartouche.fiche-application .encart-informations {
 	margin-left: 180px
 }
 
- .cartouche.fiche-application .row .form-group {
+#application .cartouche.fiche-application .row .form-group {
 	height: 35px
 }
 
- .cartouche.fiche-utilisateur .encart-photo {
+#application .cartouche.fiche-utilisateur .encart-photo {
 	width: 175px;
 	float: left
 }
 
- .fiche-utilisateur-admin .cartouche {
+#application .fiche-utilisateur-admin .cartouche {
 	padding: 0
 }
 
- .fiche-utilisateur-admin .cartouche .cartouche-section {
+#application .fiche-utilisateur-admin .cartouche .cartouche-section {
 	padding: 20px
 }
 
- .fiche-utilisateur-admin .cartouche .section-identite {
+#application .fiche-utilisateur-admin .cartouche .section-identite {
 	border-right: 1px solid #bbb;
 	float: left;
 	width: 510px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement {
+#application .fiche-utilisateur-admin .cartouche .section-rattachement {
 	margin-left: 510px
 }
 
- .cartouche .section-photo {
+#application .cartouche .section-photo {
 	float: left;
 	width: 160px;
 	position: relative
 }
 
- .cartouche .section-infos {
+#application .cartouche .section-infos {
 	margin-left: 170px
 }
 
- .fiche-utilisateur-admin .cartouche .section-identite .lien-identite
+#application .fiche-utilisateur-admin .cartouche .section-identite .lien-identite
 	{
 	margin-top: 15px;
 	text-align: center
 }
 
- .fiche-utilisateur-admin .cartouche .section-identite .lien-identite a
+#application .fiche-utilisateur-admin .cartouche .section-identite .lien-identite a
 	{
 	text-decoration: underline
 }
 
- .fiche-utilisateur-admin .cartouche .section-identite .section-infos .statuts
+#application .fiche-utilisateur-admin .cartouche .section-identite .section-infos .statuts
 	{
 	margin-top: 10px
 }
 
- .fiche-utilisateur-admin .cartouche .section-identite .section-infos .statuts .icon-libelle
+#application .fiche-utilisateur-admin .cartouche .section-identite .section-infos .statuts .icon-libelle
 	{
 	margin-top: 5px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table
 	{
 	margin: 0
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td
 	{
 	cursor: pointer
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .titre
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .titre
 	{
 	font-family: OpenSansSemiBold;
 	font-size: 14px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table.table tbody tr td
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table.table tbody tr td
 	{
 	padding: 8px 2px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .typologie
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .typologie
 	{
 	font-size: 12px
 }
 
- .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .icon-libelle
+#application .fiche-utilisateur-admin .cartouche .section-rattachement table tbody td .icon-libelle
 	{
 	margin-top: 0
 }
@@ -18505,16 +18397,16 @@ a {
 	padding: 8px 15px
 }
 
- .encart-logo {
+#application .encart-logo {
 	position: relative
 }
 
- .encart-logo .image-application img {
+#application .encart-logo .image-application img {
 	width: 120px;
 	margin: 0 20px
 }
 
- .encart-logo .image-application .titre {
+#application .encart-logo .image-application .titre {
 	color: #FFF;
 	position: relative;
 	top: 28px;
@@ -18524,24 +18416,24 @@ a {
 	text-transform: uppercase
 }
 
- .encart-logo .ribban {
+#application .encart-logo .ribban {
 	position: absolute;
 	top: 0;
 	right: 0
 }
 
- .encart-logo .ribban-real {
+#application .encart-logo .ribban-real {
 	position: absolute;
 	top: 0;
 	right: 0
 }
 
- .encart-logo .actions {
+#application .encart-logo .actions {
 	text-align: center;
 	padding: 5px
 }
 
- .encart-logo .actions a {
+#application .encart-logo .actions a {
 	color: #000
 }
 
@@ -18884,7 +18776,7 @@ a {
 	margin-top: 10px
 }
 
- .growl {
+#application .growl {
 	min-height: 0;
 	width: 400px;
 	position: fixed;
@@ -18910,48 +18802,48 @@ a {
 	white-space: nowrap
 }
 
- .page-content {
+#application .page-content {
 	border: 1px solid transparent;
 	background-color: rgba(255, 255, 255, .85);
 	margin: 30px 0 10px
 }
 
- .media-list li {
+#application .media-list li {
 	padding: 10px;
 	margin: 5px 0;
 	border-radius: 6px
 }
 
- .media-list.selection li {
+#application .media-list.selection li {
 	cursor: pointer
 }
 
- .media-list li h4 {
+#application .media-list li h4 {
 	font-family: OpenSansSemiBold
 }
 
- .media-list li.selected {
+#application .media-list li.selected {
 	color: #fff;
 	background-color: #428bca;
 	border-color: #428bca
 }
 
- img.img-xsmall {
+#application img.img-xsmall {
 	width: 50px;
 	height: 50px
 }
 
- img.img-small {
+#application img.img-small {
 	width: 50px;
 	height: 50px
 }
 
- img.img-middle {
+#application img.img-middle {
 	width: 70px;
 	height: 70px
 }
 
- img.img-large {
+#application img.img-large {
 	width: 180px;
 	height: 180px
 }
@@ -18965,19 +18857,19 @@ a {
 	-webkit-user-drag: element
 }
 
- .media-list.drag li {
+#application .media-list.drag li {
 	border: 1px dashed #1bbc9b
 }
 
- .media-list li.dragged {
+#application .media-list li.dragged {
 	opacity: 1
 }
 
- .media-list li.drag-over {
+#application .media-list li.drag-over {
 	border: 1px dashed orange
 }
 
- .media-list li.drop {
+#application .media-list li.drop {
 	-moz-animation-name: dropped-clignote;
 	-moz-animation-duration: .3s;
 	-moz-animation-iteration-count: 5;
@@ -18986,7 +18878,7 @@ a {
 	-webkit-animation-iteration-count: 5
 }
 
- .media-list .media-body .titre1 {
+#application .media-list .media-body .titre1 {
 	margin: 15px 0 0
 }
 
@@ -19057,48 +18949,48 @@ background-color
 	padding: 20px
 }
 
- .application-list,  .departure-list {
+#application .application-list, #application .departure-list {
 	padding: 20px 30px
 }
 
- .departure-list table tbody tr td.utilisateur .identite {
+#application .departure-list table tbody tr td.utilisateur .identite {
 	font-family: OpenSansSemiBold;
 	font-size: 18px
 }
 
- .departure-list table tbody tr td.action {
+#application .departure-list table tbody tr td.action {
 	padding: 15px 10px
 }
 
- .application-admin-list {
+#application .application-admin-list {
 	width: 800px;
 	margin: auto
 }
 
- .admin-user-fiche-titre {
+#application .admin-user-fiche-titre {
 	margin-top: 10px
 }
 
- .admin-user-fiche-titre .action-gauche {
+#application .admin-user-fiche-titre .action-gauche {
 	float: left;
 	width: 200px
 }
 
- .admin-user-fiche-titre .action-gauche .btn {
+#application .admin-user-fiche-titre .action-gauche .btn {
 	margin-top: 5px
 }
 
- .admin-user-fiche-titre .action-gauche .icon-libelle {
+#application .admin-user-fiche-titre .action-gauche .icon-libelle {
 	float: left;
 	padding-right: 30px
 }
 
- .admin-user-fiche-titre .action-droite {
+#application .admin-user-fiche-titre .action-droite {
 	float: right;
 	text-align: right
 }
 
- .admin-user-fiche-titre h2 {
+#application .admin-user-fiche-titre h2 {
 	width: 300px;
 	margin: 20px auto;
 	text-align: center;
@@ -19106,7 +18998,7 @@ background-color
 	font-family: OpenSansSemiBold
 }
 
- .admin-user-fiche-titre h2 a {
+#application .admin-user-fiche-titre h2 a {
 	font-size: 12px;
 	font-family: OpenSansRegular
 }
@@ -19339,7 +19231,7 @@ background-color
 	padding-top: 5px
 }
 
-sContainer .three-quarters:not (:required ){
+#applicationsContainer .three-quarters:not (:required ){
 	border: 8px solid #FFF;
 	border-right-color: transparent
 }
@@ -19714,10 +19606,10 @@ sContainer .three-quarters:not (:required ){
 	transition: .4s left
 }
 
-/* #sidebar-right.on { */
-/* 	right: 0; */
-/* 	transition: .4s right */
-/* } */
+#sidebar-right.on {
+	right: 0;
+	transition: .4s right
+}
 
 .sidebar .menuContainer button {
 	background-color: #1bbc9b;
@@ -20179,36 +20071,36 @@ ul.liste-navigateur li.firefox a {
 		font-size: 21px;
 		margin-top: 10px
 	}
-	 #carousel-apps {
+	#application #carousel-apps {
 		margin: 0
 	}
-	 #carousel-apps .carousel-inner ul li {
+	#application #carousel-apps .carousel-inner ul li {
 		margin: 6px
 	}
-	.appItem {
+	.idnot-app {
 		width: 130px;
 		height: 130px
 	}
-	.appItem .logo {
+	.idnot-app .logo {
 		padding: 20px 10px 14px
 	}
-	.appItem .logo img {
+	.idnot-app .logo img {
 		height: 50px
 	}
-	.appItem .titre {
+	.idnot-app .titre {
 		font-family: OpenSansSemiBold;
 		font-size: 15px
 	}
-	 #carousel-apps .carousel-inner {
+	#application #carousel-apps .carousel-inner {
 		overflow: visible
 	}
-	 #carousel-apps .carousel-inner ul {
+	#application #carousel-apps .carousel-inner ul {
 		height: 290px
 	}
-	 #carousel-apps .carousel-inner .pageContainer {
+	#application #carousel-apps .carousel-inner .pageContainer {
 		padding: 0
 	}
-	 #carousel-apps .carousel-control {
+	#application #carousel-apps .carousel-control {
 		width: 40px;
 		height: 40px;
 		top: -40px
@@ -20273,25 +20165,25 @@ ul.liste-navigateur li.firefox a {
 		color: #4c5157;
 		margin: 5px 0
 	}
-	 .cartouche {
+	#application .cartouche {
 		text-align: center
 	}
-	 .cartouche .photo-utilisateur {
+	#application .cartouche .photo-utilisateur {
 		margin: 0 auto
 	}
-	 .cartouche .mandat {
+	#application .cartouche .mandat {
 		font-size: 14px;
 		font-family: OpenSansSemiBold;
 		color: #3687ae;
 		margin: 5px 0
 	}
-	 .cartouche .identite {
+	#application .cartouche .identite {
 		font-size: 16px;
 		font-family: OpenSansBold;
 		color: #4c5157;
 		margin: 5px 0
 	}
-	 .cartouche .fonction {
+	#application .cartouche .fonction {
 		font-size: 12px;
 		font-family: OpenSansRegular;
 		color: #4c5157;
@@ -20320,19 +20212,19 @@ ul.liste-navigateur li.firefox a {
 		color: #4c5157;
 		margin: 5px 0
 	}
-	 .cartouche .identite {
+	#application .cartouche .identite {
 		font-size: 26px;
 		font-family: OpenSansBold;
 		color: #4c5157;
 		margin: 5px 0
 	}
-	 .cartouche .mandat {
+	#application .cartouche .mandat {
 		font-size: 22px;
 		font-family: OpenSansSemiBold;
 		color: #3687ae;
 		margin: 5px 0
 	}
-	 .cartouche .fonction {
+	#application .cartouche .fonction {
 		font-size: 18px;
 		font-family: OpenSansRegular;
 		color: #4c5157;
@@ -20341,15 +20233,15 @@ ul.liste-navigateur li.firefox a {
 }
 
 @media ( max-width :991px) {
-	 .cartouche.fiche-utilisateur .encart-photo {
+	#application .cartouche.fiche-utilisateur .encart-photo {
 		float: none;
 		width: auto;
 		text-align: center
 	}
-	 .cartouche.fiche-utilisateur .encart-informations {
+	#application .cartouche.fiche-utilisateur .encart-informations {
 		text-align: center
 	}
-	 .cartouche.fiche-utilisateur .encart-photo .photo-utilisateur
+	#application .cartouche.fiche-utilisateur .encart-photo .photo-utilisateur
 		{
 		margin: 0 auto
 	}
@@ -20359,109 +20251,4 @@ ul.liste-navigateur li.firefox a {
 	.container {
 		width: 970px
 	}
-}
-
-
-/* Profile container */
-.profile {
-  margin: 20px 0;
-}
-
-/* Profile sidebar */
-.profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
-}
-
-.profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
-
-.profile-usertitle {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
-}
-
-.profile-usertitle-job {
-  text-transform: uppercase;
-  color: #5b9bd1;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
-}
-
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-}
-    
-.profile-usermenu {
-  margin-top: 30px;
-}
-
-.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
-}
-
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-.profile-usermenu ul li a:hover {
-  background-color: background-color: rgba(5,29,49,0.5);;
-  color: #5b9bd1;
-}
-
-.profile-usermenu ul li.active {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li.active a {
-  color: #5b9bd1;
-  background-color: background-color: rgba(5,29,49,0.5);;
-  border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
-}
-
-/* Profile Content */
-.profile-content {
-  padding: 20px;
-  background-color: background-color: rgba(5,29,49,0.5);;
-  min-height: 460px;
 }

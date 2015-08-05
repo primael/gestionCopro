@@ -13,15 +13,19 @@ define([
         'views/composants/HeaderView',
         'views/composants/FooterView',
         'views/composants/ProfileView',
+        'views/services/InformationView', 
         'models/Session',
         'backbone_router'
-], function($, _, Backbone, Page, Permissions, DefaultView, LoginPageView, HomePageView, HeaderPageView, FooterPageView, ProfilePageView, Session){
+], function($, _, Backbone, Page, Permissions, DefaultView, LoginPageView, HomePageView, HeaderPageView, 
+		FooterPageView, ProfilePageView, InformationPageView, Session){
 	
 	var AppRouter = Backbone.Router.extend({
 		//define the route and function maps for this router
 		routes: {
 			"": "home",
-			"login": "login"
+			"home": "home",
+			"login": "login",
+			"information": "information"
 		},
 		
 		route_permissions: {
@@ -94,7 +98,19 @@ define([
 			footer.render();
 			
 			Page.show(new HomePageView({el: $('#content')}));
-			//$('#content').html('You\'re correctly log in application.');
+		},
+		
+		information: function(){
+			var header = new HeaderPageView({el: $('.header'), template_name: 'composants/header'});
+			header.render();
+			
+			var profile = new ProfilePageView({el: $('.sidebar-right'), template_name: 'composants/profil'});
+			profile.render();
+			
+			var footer = new FooterPageView({el: $('.footer'), template_name: 'composants/footer'});
+			footer.render();
+			
+			Page.show(new InformationPageView({el: $('#content')}));
 		}
 	});
 	
