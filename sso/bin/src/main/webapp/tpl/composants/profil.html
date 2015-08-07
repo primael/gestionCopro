@@ -1,0 +1,61 @@
+<div id="sidepanel-right" class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<span class="pull-right" id="slide-submenu"> <i
+					class="fa fa-times"></i>
+				</span>
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img
+						src="https://static9.viadeo-static.com/servlet/photo?memberId=0021ar987zs3ryii&height=185&width=140&ts=1401286074000"
+						class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name utilisateur"><%=nom %>
+						<%=prenom %></div>
+					<div class="profile-usertitle-job">STF</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<button type="button" class="btn btn-danger btn-sm">D&eacute;connexion</button>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active"><a href="#"> <i
+								class="glyphicon glyphicon-home"></i> Overview
+						</a></li>
+						<li><a href="#"> <i class="glyphicon glyphicon-user"></i>
+								Account Settings
+						</a></li>
+						<li><a href="#" target="_blank"> <i
+								class="glyphicon glyphicon-ok"></i> Tasks
+						</a></li>
+						<li><a href="#"> <i class="glyphicon glyphicon-flag"></i>
+								Help
+						</a></li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+
+		$('.burger-right').on('click', function() {
+			$('.sidebar-right').toggle('slide', {direction:'right'});
+		})
+		
+		$('.pull-right').on('click', function() {
+			$('.sidebar-right').toggle('slide', {direction:'right'});
+		})
+	})
+</script>

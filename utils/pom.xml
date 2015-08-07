@@ -3,19 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>fr.nimrod.info</groupId>
+		<groupId>fr.nimroad.info</groupId>
 		<artifactId>gestcopro</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<groupId>fr.nimroad.gestcopro</groupId>
 	<artifactId>gestcoproutils</artifactId>
-	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<inceptionYear>2015</inceptionYear>
 	<url>https://github.com/primael/gestionCopro/</url>
-	<name>SSO de Gestion Copropriete</name>
-	<description>Gestion de copropriete - compte - coproprietaire</description>
+	<name>Utils de Gestion de Copropriete</name>
+	<description>Gestion de copropriete - utilitaires</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -147,7 +145,7 @@
 
 		<!-- GestCopro-Exception -->
 		<dependency>
-			<groupId>fr.nimrod.info</groupId>
+			<groupId>fr.nimroad.info</groupId>
 			<artifactId>gestcopro-exception</artifactId>
 			<version>1.0.0</version>
 		</dependency>

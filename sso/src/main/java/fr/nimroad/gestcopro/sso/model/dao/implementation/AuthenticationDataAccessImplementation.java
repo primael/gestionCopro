@@ -48,7 +48,7 @@ public static final TokenDataAccessImplementation<AuthenticationToken> INSTANCE 
     
     @Override
     public void invalidatePreviousTokens(Utilisateur utilisateur){
-        //On récupère la liste des tokens pour l'utilisateur
+        //On rï¿½cupï¿½re la liste des tokens pour l'utilisateur
         List<AuthenticationToken> tokens = users.get(utilisateur);
         if( tokens!=null ){
             for(AuthenticationToken token : tokens){
@@ -59,7 +59,7 @@ public static final TokenDataAccessImplementation<AuthenticationToken> INSTANCE 
         }
     }
     
-    public AuthenticationToken save(AuthenticationToken entity) throws GestCoproException {
+    public AuthenticationToken save(AuthenticationToken entity) {
        
         //Inscription dans la carte utilisateurs
         addAuthenticationTokenToTokens(entity);

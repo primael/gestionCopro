@@ -2,14 +2,14 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fr.nimrod.info</groupId>
+	<groupId>fr.nimroad.info</groupId>
 	<artifactId>gestcopro</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<jacoco.version>0.7.1.201405082137</jacoco.version>
+		<jacoco.version>0.7.5.201505241946</jacoco.version>
 		<java.version>1.8</java.version>
 		<lombok.version>1.12.6</lombok.version>
 	</properties>

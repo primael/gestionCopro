@@ -5,7 +5,7 @@
 		<class>fr.nimroad.gestcopro.sso.model.entite.hub.HubApplication</class>
 		<class>fr.nimroad.gestcopro.sso.model.entite.Utilisateur</class>
 		<class>fr.nimroad.gestcopro.sso.model.entite.ActivationToken</class>
-		<class>fr.nimroad.gestcopro.sso.model.entite.Token</class>
+		<class>fr.nimroad.gestcopro.sso.model.entite.AuthenticationToken</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

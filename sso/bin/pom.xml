@@ -167,14 +167,14 @@
 
 		<!-- GestCopro-Exception -->
 		<dependency> 
-			<groupId>fr.nimroad.info</groupId> 
+			<groupId>fr.nimrod.info</groupId> 
 			<artifactId>gestcopro-exception</artifactId>
 			<version>1.0.0</version> 
 		</dependency>
 
 		<!-- GestCopro-Utils -->
 		<dependency>
-			<groupId>fr.nimroad.info</groupId>
+			<groupId>fr.nimroad.gestcopro</groupId>
 			<artifactId>gestcoproutils</artifactId>
 			<version>1.0.0</version>
 		</dependency>
