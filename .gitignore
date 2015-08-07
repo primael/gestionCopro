@@ -20,3 +20,5 @@ backend/.classpath
 backend/.project
 
 gestcopro/*
+.project
+.settings/
